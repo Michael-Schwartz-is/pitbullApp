@@ -1,0 +1,625 @@
+[
+  {
+    "day": "Monday",
+    "sessions": [
+      {
+        "time": "6:00 AM",
+        "class": "Morning No-Gi",
+        "attendees": [
+          "elaylopo@gmail.com",
+          "loyauri@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "gsim84@gmail.com",
+          "rotemsadia@gmail.com",
+          "1ramgilboa@gmail.com",
+          "jonathan.niv@gmail.com",
+          "erezdav@gmail.com",
+          "micha.gash@gmail.com",
+          "mike@gushon.com",
+          "esazonov20@gmail.com",
+          "ian.imerman@gmail.com",
+          "bskunda1992@gmail.com",
+          "timursultanov7@gmail.com"
+        ]
+      },
+      {
+        "time": "12:00 PM",
+        "class": "Lunch Fundamentals",
+        "attendees": [
+          "1ramgilboa@gmail.com",
+          "gsim84@gmail.com",
+          "micha.gash@gmail.com",
+          "mike@gushon.com",
+          "loyauri@gmail.com",
+          "esazonov20@gmail.com",
+          "rotemsadia@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "ian.imerman@gmail.com",
+          "jonathan.niv@gmail.com",
+          "bskunda1992@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "elaylopo@gmail.com",
+          "erezdav@gmail.com",
+          "timursultanov7@gmail.com"
+        ]
+      },
+      {
+        "time": "6:00 PM",
+        "class": "Gi All Levels",
+        "attendees": [
+          "rotemsadia@gmail.com",
+          "erezdav@gmail.com",
+          "timursultanov7@gmail.com",
+          "ian.imerman@gmail.com",
+          "gsim84@gmail.com",
+          "mike@gushon.com",
+          "loyauri@gmail.com",
+          "bskunda1992@gmail.com",
+          "1ramgilboa@gmail.com",
+          "elaylopo@gmail.com",
+          "esazonov20@gmail.com",
+          "micha.gash@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "jonathan.niv@gmail.com"
+        ]
+      },
+      {
+        "time": "7:30 PM",
+        "class": "No-Gi Intermediate",
+        "attendees": [
+          "gavrilovsimha@gmail.com",
+          "micha.gash@gmail.com",
+          "esazonov20@gmail.com",
+          "elaylopo@gmail.com",
+          "rotemsadia@gmail.com",
+          "ian.imerman@gmail.com",
+          "loyauri@gmail.com",
+          "1ramgilboa@gmail.com",
+          "timursultanov7@gmail.com",
+          "gsim84@gmail.com",
+          "jonathan.niv@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "erezdav@gmail.com",
+          "bskunda1992@gmail.com",
+          "mike@gushon.com"
+        ]
+      }
+    ]
+  },
+  {
+    "day": "Tuesday",
+    "sessions": [
+      {
+        "time": "6:00 AM",
+        "class": "Morning Fundamentals",
+        "attendees": [
+          "yevgeny.ofer@gmail.com",
+          "elaylopo@gmail.com",
+          "gsim84@gmail.com",
+          "jonathan.niv@gmail.com",
+          "rotemsadia@gmail.com",
+          "timursultanov7@gmail.com",
+          "micha.gash@gmail.com",
+          "bskunda1992@gmail.com",
+          "ian.imerman@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "mike@gushon.com",
+          "erezdav@gmail.com",
+          "1ramgilboa@gmail.com",
+          "esazonov20@gmail.com",
+          "loyauri@gmail.com"
+        ]
+      },
+      {
+        "time": "12:00 PM",
+        "class": "Lunch No-Gi",
+        "attendees": [
+          "esazonov20@gmail.com",
+          "rotemsadia@gmail.com",
+          "gsim84@gmail.com",
+          "micha.gash@gmail.com",
+          "timursultanov7@gmail.com",
+          "bskunda1992@gmail.com",
+          "elaylopo@gmail.com",
+          "mike@gushon.com",
+          "yevgeny.ofer@gmail.com",
+          "loyauri@gmail.com",
+          "1ramgilboa@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "jonathan.niv@gmail.com",
+          "ian.imerman@gmail.com",
+          "erezdav@gmail.com"
+        ]
+      },
+      {
+        "time": "6:30 PM",
+        "class": "Advanced Gi",
+        "attendees": [
+          "yevgeny.ofer@gmail.com",
+          "timursultanov7@gmail.com",
+          "micha.gash@gmail.com",
+          "mike@gushon.com",
+          "gsim84@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "rotemsadia@gmail.com",
+          "loyauri@gmail.com",
+          "erezdav@gmail.com",
+          "esazonov20@gmail.com",
+          "1ramgilboa@gmail.com",
+          "jonathan.niv@gmail.com",
+          "bskunda1992@gmail.com",
+          "ian.imerman@gmail.com",
+          "elaylopo@gmail.com"
+        ]
+      },
+      {
+        "time": "8:00 PM",
+        "class": "Open Mat",
+        "attendees": [
+          "esazonov20@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "erezdav@gmail.com",
+          "ian.imerman@gmail.com",
+          "loyauri@gmail.com",
+          "jonathan.niv@gmail.com",
+          "rotemsadia@gmail.com",
+          "bskunda1992@gmail.com",
+          "1ramgilboa@gmail.com",
+          "timursultanov7@gmail.com",
+          "mike@gushon.com",
+          "yevgeny.ofer@gmail.com",
+          "gsim84@gmail.com",
+          "micha.gash@gmail.com",
+          "elaylopo@gmail.com"
+        ]
+      }
+    ]
+  },
+  {
+    "day": "Wednesday",
+    "sessions": [
+      {
+        "time": "6:00 AM",
+        "class": "Morning No-Gi",
+        "attendees": [
+          "rotemsadia@gmail.com",
+          "loyauri@gmail.com",
+          "esazonov20@gmail.com",
+          "1ramgilboa@gmail.com",
+          "gsim84@gmail.com",
+          "micha.gash@gmail.com",
+          "elaylopo@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "jonathan.niv@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "mike@gushon.com",
+          "ian.imerman@gmail.com",
+          "erezdav@gmail.com",
+          "bskunda1992@gmail.com",
+          "timursultanov7@gmail.com"
+        ]
+      },
+      {
+        "time": "12:00 PM",
+        "class": "Lunch Intermediate",
+        "attendees": [
+          "elaylopo@gmail.com",
+          "ian.imerman@gmail.com",
+          "erezdav@gmail.com",
+          "loyauri@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "timursultanov7@gmail.com",
+          "gsim84@gmail.com",
+          "jonathan.niv@gmail.com",
+          "esazonov20@gmail.com",
+          "mike@gushon.com",
+          "rotemsadia@gmail.com",
+          "1ramgilboa@gmail.com",
+          "micha.gash@gmail.com",
+          "bskunda1992@gmail.com"
+        ]
+      },
+      {
+        "time": "6:00 PM",
+        "class": "Fundamentals",
+        "attendees": [
+          "jonathan.niv@gmail.com",
+          "bskunda1992@gmail.com",
+          "loyauri@gmail.com",
+          "1ramgilboa@gmail.com",
+          "erezdav@gmail.com",
+          "elaylopo@gmail.com",
+          "esazonov20@gmail.com",
+          "micha.gash@gmail.com",
+          "rotemsadia@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "ian.imerman@gmail.com",
+          "mike@gushon.com",
+          "timursultanov7@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "gsim84@gmail.com"
+        ]
+      },
+      {
+        "time": "7:30 PM",
+        "class": "No-Gi Advanced",
+        "attendees": [
+          "gavrilovsimha@gmail.com",
+          "1ramgilboa@gmail.com",
+          "loyauri@gmail.com",
+          "ian.imerman@gmail.com",
+          "gsim84@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "esazonov20@gmail.com",
+          "elaylopo@gmail.com",
+          "bskunda1992@gmail.com",
+          "rotemsadia@gmail.com",
+          "erezdav@gmail.com",
+          "jonathan.niv@gmail.com",
+          "micha.gash@gmail.com",
+          "mike@gushon.com",
+          "timursultanov7@gmail.com"
+        ]
+      }
+    ]
+  },
+  {
+    "day": "Thursday",
+    "sessions": [
+      {
+        "time": "6:00 AM",
+        "class": "Morning Gi",
+        "attendees": [
+          "mike@gushon.com",
+          "esazonov20@gmail.com",
+          "rotemsadia@gmail.com",
+          "gsim84@gmail.com",
+          "jonathan.niv@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "ian.imerman@gmail.com",
+          "elaylopo@gmail.com",
+          "bskunda1992@gmail.com",
+          "timursultanov7@gmail.com",
+          "1ramgilboa@gmail.com",
+          "micha.gash@gmail.com",
+          "loyauri@gmail.com",
+          "erezdav@gmail.com",
+          "gavrilovsimha@gmail.com"
+        ]
+      },
+      {
+        "time": "12:00 PM",
+        "class": "Lunch Open Mat",
+        "attendees": [
+          "jonathan.niv@gmail.com",
+          "esazonov20@gmail.com",
+          "ian.imerman@gmail.com",
+          "mike@gushon.com",
+          "1ramgilboa@gmail.com",
+          "rotemsadia@gmail.com",
+          "elaylopo@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "bskunda1992@gmail.com",
+          "timursultanov7@gmail.com",
+          "micha.gash@gmail.com",
+          "gsim84@gmail.com",
+          "loyauri@gmail.com",
+          "erezdav@gmail.com"
+        ]
+      },
+      {
+        "time": "6:00 PM",
+        "class": "No-Gi All Levels",
+        "attendees": [
+          "jonathan.niv@gmail.com",
+          "1ramgilboa@gmail.com",
+          "bskunda1992@gmail.com",
+          "timursultanov7@gmail.com",
+          "erezdav@gmail.com",
+          "mike@gushon.com",
+          "rotemsadia@gmail.com",
+          "loyauri@gmail.com",
+          "micha.gash@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "ian.imerman@gmail.com",
+          "elaylopo@gmail.com",
+          "gsim84@gmail.com",
+          "esazonov20@gmail.com"
+        ]
+      },
+      {
+        "time": "7:30 PM",
+        "class": "Gi Intermediate",
+        "attendees": [
+          "timursultanov7@gmail.com",
+          "jonathan.niv@gmail.com",
+          "esazonov20@gmail.com",
+          "1ramgilboa@gmail.com",
+          "micha.gash@gmail.com",
+          "mike@gushon.com",
+          "loyauri@gmail.com",
+          "rotemsadia@gmail.com",
+          "ian.imerman@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "erezdav@gmail.com",
+          "gsim84@gmail.com",
+          "bskunda1992@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "elaylopo@gmail.com"
+        ]
+      }
+    ]
+  },
+  {
+    "day": "Friday",
+    "sessions": [
+      {
+        "time": "6:00 AM",
+        "class": "Morning No-Gi",
+        "attendees": [
+          "gavrilovsimha@gmail.com",
+          "esazonov20@gmail.com",
+          "bskunda1992@gmail.com",
+          "gsim84@gmail.com",
+          "1ramgilboa@gmail.com",
+          "micha.gash@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "elaylopo@gmail.com",
+          "mike@gushon.com",
+          "loyauri@gmail.com",
+          "timursultanov7@gmail.com",
+          "ian.imerman@gmail.com",
+          "jonathan.niv@gmail.com",
+          "rotemsadia@gmail.com",
+          "erezdav@gmail.com"
+        ]
+      },
+      {
+        "time": "12:00 PM",
+        "class": "Lunch Gi",
+        "attendees": [
+          "esazonov20@gmail.com",
+          "elaylopo@gmail.com",
+          "loyauri@gmail.com",
+          "mike@gushon.com",
+          "bskunda1992@gmail.com",
+          "erezdav@gmail.com",
+          "jonathan.niv@gmail.com",
+          "gsim84@gmail.com",
+          "ian.imerman@gmail.com",
+          "timursultanov7@gmail.com",
+          "micha.gash@gmail.com",
+          "rotemsadia@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "1ramgilboa@gmail.com",
+          "yevgeny.ofer@gmail.com"
+        ]
+      },
+      {
+        "time": "6:30 PM",
+        "class": "All Levels Gi",
+        "attendees": [
+          "loyauri@gmail.com",
+          "1ramgilboa@gmail.com",
+          "micha.gash@gmail.com",
+          "esazonov20@gmail.com",
+          "timursultanov7@gmail.com",
+          "bskunda1992@gmail.com",
+          "gsim84@gmail.com",
+          "erezdav@gmail.com",
+          "mike@gushon.com",
+          "yevgeny.ofer@gmail.com",
+          "elaylopo@gmail.com",
+          "jonathan.niv@gmail.com",
+          "ian.imerman@gmail.com",
+          "rotemsadia@gmail.com",
+          "gavrilovsimha@gmail.com"
+        ]
+      },
+      {
+        "time": "8:00 PM",
+        "class": "Open Mat",
+        "attendees": [
+          "yevgeny.ofer@gmail.com",
+          "esazonov20@gmail.com",
+          "elaylopo@gmail.com",
+          "ian.imerman@gmail.com",
+          "micha.gash@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "rotemsadia@gmail.com",
+          "bskunda1992@gmail.com",
+          "loyauri@gmail.com",
+          "gsim84@gmail.com",
+          "jonathan.niv@gmail.com",
+          "erezdav@gmail.com",
+          "mike@gushon.com",
+          "1ramgilboa@gmail.com",
+          "timursultanov7@gmail.com"
+        ]
+      }
+    ]
+  },
+  {
+    "day": "Saturday",
+    "sessions": [
+      {
+        "time": "8:00 AM",
+        "class": "Kids' Class",
+        "attendees": [
+          "micha.gash@gmail.com",
+          "jonathan.niv@gmail.com",
+          "rotemsadia@gmail.com",
+          "loyauri@gmail.com",
+          "mike@gushon.com",
+          "erezdav@gmail.com",
+          "1ramgilboa@gmail.com",
+          "timursultanov7@gmail.com",
+          "ian.imerman@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "bskunda1992@gmail.com",
+          "gsim84@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "elaylopo@gmail.com",
+          "esazonov20@gmail.com"
+        ]
+      },
+      {
+        "time": "9:00 AM",
+        "class": "All Levels Gi",
+        "attendees": [
+          "1ramgilboa@gmail.com",
+          "erezdav@gmail.com",
+          "mike@gushon.com",
+          "bskunda1992@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "loyauri@gmail.com",
+          "esazonov20@gmail.com",
+          "elaylopo@gmail.com",
+          "rotemsadia@gmail.com",
+          "gsim84@gmail.com",
+          "jonathan.niv@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "micha.gash@gmail.com",
+          "timursultanov7@gmail.com",
+          "ian.imerman@gmail.com"
+        ]
+      },
+      {
+        "time": "10:30 AM",
+        "class": "No-Gi Open Mat",
+        "attendees": [
+          "yevgeny.ofer@gmail.com",
+          "jonathan.niv@gmail.com",
+          "1ramgilboa@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "rotemsadia@gmail.com",
+          "erezdav@gmail.com",
+          "micha.gash@gmail.com",
+          "ian.imerman@gmail.com",
+          "timursultanov7@gmail.com",
+          "gsim84@gmail.com",
+          "loyauri@gmail.com",
+          "esazonov20@gmail.com",
+          "bskunda1992@gmail.com",
+          "mike@gushon.com",
+          "elaylopo@gmail.com"
+        ]
+      },
+      {
+        "time": "12:00 PM",
+        "class": "Advanced Techniques",
+        "attendees": [
+          "rotemsadia@gmail.com",
+          "micha.gash@gmail.com",
+          "jonathan.niv@gmail.com",
+          "timursultanov7@gmail.com",
+          "mike@gushon.com",
+          "gsim84@gmail.com",
+          "erezdav@gmail.com",
+          "esazonov20@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "elaylopo@gmail.com",
+          "loyauri@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "1ramgilboa@gmail.com",
+          "bskunda1992@gmail.com",
+          "ian.imerman@gmail.com"
+        ]
+      }
+    ]
+  },
+  {
+    "day": "Sunday",
+    "sessions": [
+      {
+        "time": "9:00 AM",
+        "class": "No-Gi Fundamentals",
+        "attendees": [
+          "esazonov20@gmail.com",
+          "jonathan.niv@gmail.com",
+          "rotemsadia@gmail.com",
+          "loyauri@gmail.com",
+          "elaylopo@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "1ramgilboa@gmail.com",
+          "erezdav@gmail.com",
+          "bskunda1992@gmail.com",
+          "gsim84@gmail.com",
+          "mike@gushon.com",
+          "timursultanov7@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "micha.gash@gmail.com",
+          "ian.imerman@gmail.com"
+        ]
+      },
+      {
+        "time": "10:30 AM",
+        "class": "Gi All Levels",
+        "attendees": [
+          "jonathan.niv@gmail.com",
+          "timursultanov7@gmail.com",
+          "rotemsadia@gmail.com",
+          "loyauri@gmail.com",
+          "mike@gushon.com",
+          "ian.imerman@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "elaylopo@gmail.com",
+          "yevgeny.ofer@gmail.com",
+          "erezdav@gmail.com",
+          "esazonov20@gmail.com",
+          "1ramgilboa@gmail.com",
+          "gsim84@gmail.com",
+          "micha.gash@gmail.com",
+          "bskunda1992@gmail.com"
+        ]
+      },
+      {
+        "time": "12:00 PM",
+        "class": "Open Mat",
+        "attendees": [
+          "yevgeny.ofer@gmail.com",
+          "timursultanov7@gmail.com",
+          "elaylopo@gmail.com",
+          "ian.imerman@gmail.com",
+          "1ramgilboa@gmail.com",
+          "esazonov20@gmail.com",
+          "erezdav@gmail.com",
+          "gsim84@gmail.com",
+          "mike@gushon.com",
+          "micha.gash@gmail.com",
+          "jonathan.niv@gmail.com",
+          "loyauri@gmail.com",
+          "bskunda1992@gmail.com",
+          "rotemsadia@gmail.com",
+          "gavrilovsimha@gmail.com"
+        ]
+      },
+      {
+        "time": "5:00 PM",
+        "class": "Evening Drills",
+        "attendees": [
+          "timursultanov7@gmail.com",
+          "elaylopo@gmail.com",
+          "mike@gushon.com",
+          "yevgeny.ofer@gmail.com",
+          "gavrilovsimha@gmail.com",
+          "rotemsadia@gmail.com",
+          "jonathan.niv@gmail.com",
+          "ian.imerman@gmail.com",
+          "micha.gash@gmail.com",
+          "gsim84@gmail.com",
+          "1ramgilboa@gmail.com",
+          "bskunda1992@gmail.com",
+          "erezdav@gmail.com",
+          "esazonov20@gmail.com",
+          "loyauri@gmail.com"
+        ]
+      }
+    ]
+  }
+]

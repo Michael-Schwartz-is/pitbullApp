@@ -1,0 +1,178 @@
+[
+  {
+    "name": "מיכאל",
+    "email": "mike@gushon.com",
+    "date": "2020-07-20T18:20:52.790Z",
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/oHciAXEhHZHBaD1GYnlr.jpg",
+    "admin": "yes",
+    "new_column_b": "mike@gushon.com"
+  },
+  {
+    "name": "שמחה",
+    "email": "gavrilovsimha@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/qGZdOvtJv7ArA8J3cWhq.jpg",
+    "admin": "yes",
+    "new_column_b": "gavrilovsimha@gmail.com"
+  },
+  {
+    "name": "ארז",
+    "email": "erezdav@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/UJMI8DWVkQ0QAjcikjyx.jpg",
+    "admin": null,
+    "new_column_b": "erezdav@gmail.com"
+  },
+  {
+    "name": "יונתן",
+    "email": "jonathan.niv@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/ykcs6mITYziLSq9p32rp.jpg",
+    "admin": "yes",
+    "new_column_b": "jonathan.niv@gmail.com"
+  },
+  {
+    "name": "רותם",
+    "email": "rotemsadia@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/d6KrWv96Wi1YYctnBlTh.jpg",
+    "admin": null,
+    "new_column_b": "rotemsadia@gmail.com"
+  },
+  {
+    "name": "בוריס",
+    "email": "bskunda1992@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/fsSE8BHwb1Ss3tEAfmXz.jpg",
+    "admin": null,
+    "new_column_b": "bskunda1992@gmail.com"
+  },
+  {
+    "name": "איאן",
+    "email": "ian.imerman@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/QbMypyAA9iT4jsdRBFr1.jpg",
+    "admin": null,
+    "new_column_b": "ian.imerman@gmail.com"
+  },
+  {
+    "name": "מיכאל",
+    "email": "micha.gash@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/urrX6AMh61bdoY7S31pN.jpg",
+    "admin": null,
+    "new_column_b": "micha.gash@gmail.com"
+  },
+  {
+    "name": "Evgeny S",
+    "email": "esazonov20@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/ngiDa29AMEPFC5b25jM1.jpeg",
+    "admin": null,
+    "new_column_b": "esazonov20@gmail.com"
+  },
+  {
+    "name": "Gil",
+    "email": "gsim84@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/bMGYYVkUpjLqJtFbu6uF.jpg",
+    "admin": null,
+    "new_column_b": "gsim84@gmail.com"
+  },
+  {
+    "name": null,
+    "email": "volchkin@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/iHyEdQsajgfdW50W3DXw.jpg",
+    "admin": null,
+    "new_column_b": "volchkin@gmail.com"
+  },
+  {
+    "name": null,
+    "email": "yuvalkakon301@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/GKA9nN4OVJduHUrmtQPd.jpeg",
+    "admin": null,
+    "new_column_b": "yuvalkakon301@gmail.com"
+  },
+  {
+    "name": "אורי",
+    "email": "loyauri@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/N8alBpb6006J8mB5G7nk.jpg",
+    "admin": null,
+    "new_column_b": "loyauri@gmail.com"
+  },
+  {
+    "name": "Elay the gentle",
+    "email": "elaylopo@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/Yzcq5sfqMkW1CcaqOinW.jpeg",
+    "admin": null,
+    "new_column_b": "elaylopo@gmail.com"
+  },
+  {
+    "name": "Yevgeny",
+    "email": "yevgeny.ofer@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/k7Sdyfa2GRbYw6SM7JTQ.jpeg",
+    "admin": null,
+    "new_column_b": "yevgeny.ofer@gmail.com"
+  },
+  {
+    "name": "Timur",
+    "email": "timursultanov7@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/V2NbF3P0AjpLGbGCTW7I.jpeg",
+    "admin": null,
+    "new_column_b": "timursultanov7@gmail.com"
+  },
+  {
+    "name": null,
+    "email": "rubinshtein.p@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/mkzrIUiExH52C7D1GHB3.jpeg",
+    "admin": null,
+    "new_column_b": "rubinshtein.p@gmail.com"
+  },
+  {
+    "name": null,
+    "email": "yarivoshy@walla.co.il",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/7x1bgrDV2OlDAsAk9Kxn.jpg",
+    "admin": null,
+    "new_column_b": "yarivoshy@walla.co.il"
+  },
+  {
+    "name": "מיכאל ללוש",
+    "email": "michael.lellouch@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/ROj2Pwvu1tM607YawNGr.jpg",
+    "admin": null,
+    "new_column_b": "michael.lellouch@gmail.com"
+  },
+  {
+    "name": "Ram",
+    "email": "1ramgilboa@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/aUtS5h7E8kNcnNHCR1UM.jpg",
+    "admin": null,
+    "new_column_b": "1ramgilboa@gmail.com"
+  },
+  {
+    "name": null,
+    "email": "amitshac@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/aLM5wBUUtUbFkGIkLR0n.jpg",
+    "admin": null,
+    "new_column_b": "amitshac@gmail.com"
+  },
+  {
+    "name": null,
+    "email": "itzik80020@gmail.com",
+    "date": null,
+    "image": "https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Mrzon3ctY42YLEYZUb5i/pub/fapapmeLTT51WjDlbXq0.jpeg",
+    "admin": null,
+    "new_column_b": "itzik80020@gmail.com"
+  }
+]

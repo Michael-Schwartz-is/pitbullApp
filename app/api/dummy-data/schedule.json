@@ -1,0 +1,65 @@
+[
+  {
+    "day": "Monday",
+    "sessions": [
+      { "time": "6:00 AM", "class": "Morning No-Gi", "active": true },
+      { "time": "12:00 PM", "class": "Lunch Fundamentals" },
+      { "time": "6:00 PM", "class": "Gi All Levels" },
+      { "time": "7:30 PM", "class": "No-Gi Intermediate" }
+    ]
+  },
+  {
+    "day": "Tuesday",
+    "sessions": [
+      { "time": "6:00 AM", "class": "Morning Fundamentals" },
+      { "time": "12:00 PM", "class": "Lunch No-Gi" },
+      { "time": "6:30 PM", "class": "Advanced Gi" },
+      { "time": "8:00 PM", "class": "Open Mat" }
+    ]
+  },
+  {
+    "day": "Wednesday",
+    "sessions": [
+      { "time": "6:00 AM", "class": "Morning No-Gi" },
+      { "time": "12:00 PM", "class": "Lunch Intermediate" },
+      { "time": "6:00 PM", "class": "Fundamentals" },
+      { "time": "7:30 PM", "class": "No-Gi Advanced" }
+    ]
+  },
+  {
+    "day": "Thursday",
+    "sessions": [
+      { "time": "6:00 AM", "class": "Morning Gi" },
+      { "time": "12:00 PM", "class": "Lunch Open Mat" },
+      { "time": "6:00 PM", "class": "No-Gi All Levels" },
+      { "time": "7:30 PM", "class": "Gi Intermediate" }
+    ]
+  },
+  {
+    "day": "Friday",
+    "sessions": [
+      { "time": "6:00 AM", "class": "Morning No-Gi" },
+      { "time": "12:00 PM", "class": "Lunch Gi" },
+      { "time": "6:30 PM", "class": "All Levels Gi" },
+      { "time": "8:00 PM", "class": "Open Mat" }
+    ]
+  },
+  {
+    "day": "Saturday",
+    "sessions": [
+      { "time": "8:00 AM", "class": "Kids' Class" },
+      { "time": "9:00 AM", "class": "All Levels Gi" },
+      { "time": "10:30 AM", "class": "No-Gi Open Mat" },
+      { "time": "12:00 PM", "class": "Advanced Techniques" }
+    ]
+  },
+  {
+    "day": "Sunday",
+    "sessions": [
+      { "time": "9:00 AM", "class": "No-Gi Fundamentals" },
+      { "time": "10:30 AM", "class": "Gi All Levels" },
+      { "time": "12:00 PM", "class": "Open Mat" },
+      { "time": "5:00 PM", "class": "Evening Drills" }
+    ]
+  }
+]
