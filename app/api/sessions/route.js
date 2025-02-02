@@ -1,15 +1,6 @@
 import { getAttendeesByDayAndClass } from "../api";
 import mongoose from "mongoose";
 
-async function connectToDB() {
-  try {
-    await mongoose.connect(process.env.DB_URL);
-    console.log("Connection Successful!");
-  } catch (err) {
-    console.log(err);
-  }
-}
-
 export async function GET(request, { params }) {
   const { day, className } = await params;
 

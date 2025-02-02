@@ -7,8 +7,8 @@ function SessionButton({ info }) {
   const { day, session, email } = info;
 
   async function handleSessionSignup() {
-    console.log(info);
-    console.log(`${email} wants to join ${session} on ${day}`);
+    // console.log(info);
+    // console.log(`${email} wants to join ${session} on ${day}`);
     const res = await fetch("/api/join-session", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -17,10 +17,10 @@ function SessionButton({ info }) {
   }
 
   return (
-    <div className="fixed flex items-center w-full bottom-[80px]">
-      <Button className="bg-orange-500 mx-auto p-5" onClick={() => handleSessionSignup()}>
+    <div className="">
+      <Button className="bg-orange-500 p-5" onClick={() => handleSessionSignup()}>
         <Plus />
-        להרשם לאימון זה
+        ברור שאגיע, תרשום אותי
       </Button>
     </div>
   );

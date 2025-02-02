@@ -7,6 +7,7 @@ import { Component } from "@/components/ui/WeeklyChart";
 import { Button } from "@/components/ui/button";
 import RandomGymImage from "@/app/components/ui/randomGymImage";
 import RandomImage from "@/app/components/ui/RandomImage";
+import ModeToggle from "@/components/mode-toggle";
 
 async function Profile() {
   const userData = await auth();
@@ -67,6 +68,23 @@ async function Profile() {
   const firstSession = new Date(sortedSessions[sortedSessions.length - 1].session_date);
   return (
     <div dir="ltr">
+      <div className="fixed z-50 px-4 top-0 w-full flex justify-between items-center">
+        <ModeToggle />
+
+        <div className="">
+          <form
+            className="p-4"
+            action={async () => {
+              "use server";
+              await signOut("google");
+            }}
+          >
+            <Button variant="outline" type="submit">
+              Logout
+            </Button>
+          </form>
+        </div>
+      </div>
       <Container>
         <div>
           {user.image ? (
@@ -109,20 +127,6 @@ async function Profile() {
         <ul className="flex flex-col gap-2" key={sessionList.email}>
           {sessionList}
         </ul>
-
-        <div className="absolute right-0 top-0">
-          <form
-            className="p-4"
-            action={async () => {
-              "use server";
-              await signOut("google");
-            }}
-          >
-            <Button variant="outline" type="submit">
-              Logout
-            </Button>
-          </form>
-        </div>
       </Container>
     </div>
   );

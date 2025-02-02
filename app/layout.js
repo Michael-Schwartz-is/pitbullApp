@@ -21,11 +21,10 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body dir="rtl" className={`${font.className} font-medium antialiased`}>
-        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
-        {userData && <NavBar />}
-        {/* <ModeToggle /> */}
-        <div className="bg-slate-50">{children}</div>
-        {/* </ThemeProvider> */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {userData && <NavBar />}
+          <div className="bg-slate-50 dark:bg-slate-50/0">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -4,22 +4,24 @@ import trainImage from "../../../assets/train.jpg";
 import TitleBar from "@/app/components/ui/TitleBar";
 import Container from "@/app/components/ui/Container";
 import { getSessionsByDay } from "@/app/api/route";
+import { daysOfWeek } from "../page";
 
 async function trainingDay({ params }) {
   const { day } = await params;
 
+  const today = daysOfWeek.find((d) => d.name === day);
   const sessions = await getSessionsByDay(day);
 
   return (
     <Container>
       <div className="max-w-[30rem] mx-auto">
-        <TitleBar title={day} />
+        <TitleBar title={`אימונים ליום ${today.hebName}`} />
         <div className="flex flex-col gap-2">
           {sessions.map((session) => {
             return (
               <Link
                 key={session._id}
-                className="flex p-4 gap-3 bg-white md:hover:bg-orange-200 transition-colors"
+                className="flex p-4 gap-3 bg-white dark:bg-stone-800 md:hover:bg-orange-200 dark:md:hover:bg-orange-400 transition-colors"
                 href={`/int/schedule/${day}/${session.english_name}`}
               >
                 <Image
@@ -30,7 +32,7 @@ async function trainingDay({ params }) {
                   alt="thing"
                 />
                 <div>
-                  <div className="font-bold text-stone-700">{`${session.english_name} ${session.emoji} ${session.heb_name}`}</div>
+                  <div className="font-bold">{`${session.english_name} ${session.emoji} ${session.heb_name}`}</div>
                   <div>{session.time}</div>
                 </div>
               </Link>

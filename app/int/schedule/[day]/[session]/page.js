@@ -10,12 +10,15 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
 import RandomImage from "@/app/components/ui/RandomImage";
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
 
 async function session({ params }) {
   const userSession = await auth();
@@ -33,20 +36,25 @@ async function session({ params }) {
   // console.log("funnn =>>>", await getAttendeesByDayAndSession(day, session));
 
   return (
-    <div className="">
+    <div>
       <Dialog>
-        <DialogTrigger className="absolute bottom-20 left-[50%] translate-x-[-50%] z-50">
-          Login
+        <DialogTrigger className="fixed bottom-20 flex left-[50%] translate-x-[-50%] z-50 bg-orange-400 text-white dark:text-black rounded-md p-4">
+          <Plus />
+          להצטרף לאמון זה
         </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Are you absolutely sure?</DialogTitle>
+        <DialogContent className="text-center p-10 max-w-[20rem]">
+          <DialogHeader className="flex flex-col gap-3">
+            <DialogTitle>להרשם לאימון {[day, session]}</DialogTitle>
             <DialogDescription>
-              This action cannot be undone. This will permanently delete your account and remove
-              your data from our servers.
+              בוא נוודא שאתה מתכוון באמת לבוא ורק אם כן, תרשם. אל תתפוס מקומות של אחרים...
             </DialogDescription>
+
             <SessionButton info={info} />
           </DialogHeader>
+
+          <DialogFooter>
+            <Button type="submit">Confirm</Button>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
 
@@ -65,7 +73,7 @@ async function session({ params }) {
               return (
                 <div
                   key={person._id}
-                  className="flex flex-col p-3 bg-white hover:bg-orange-100 gap-2 items-center"
+                  className="flex flex-col p-3 bg-white dark:bg-stone-800 gap-2 items-center"
                 >
                   {person.user_id?.image ? (
                     <Image

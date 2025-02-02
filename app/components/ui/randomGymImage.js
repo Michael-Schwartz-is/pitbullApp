@@ -10,7 +10,9 @@ export default async function RandomGymImage() {
   //   const randomImage = files[Math.floor(Math.random() * files.length)];
   //   return `/bjj_img/${randomImage}`;
 
-  const imageList = files.map((file) => `/bjj_img/${file}`);
+  const imageList = files
+    .map((file) => `/bjj_img/${file}`)
+    .filter((i) => i.includes("jpeg" ?? "png" ?? "webp" ?? "jpg" ?? "avif"));
 
   return imageList;
 }

@@ -9,7 +9,7 @@ export async function getAttendeesByDayAndSession(day, session) {
   const attendeesList = await SessionModel.find({
     name: session,
     day: day,
-    date: { $gte: now },
+    // date: { $gte: now },
   })
     .populate("schedule_id")
     .populate("user_id");
