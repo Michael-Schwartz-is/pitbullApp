@@ -11,8 +11,7 @@ async function connectToDB() {
 }
 
 export async function GET(request, { params }) {
-  const params = await params;
-  const { day, className } = params;
+  const { day, className } = await params;
 
   const sessions = getAttendeesByDayAndClass(day, className);
 

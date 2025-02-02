@@ -24,6 +24,5 @@ export async function getSessionsByDay(day) {
     active: { $ne: false },
   });
 
-  console.log(ScheduleList);
   return ScheduleList;
 }
