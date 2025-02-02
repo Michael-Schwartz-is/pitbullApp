@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "stage": "bash -c 'git checkout staging && git add . && git commit -m \"$1\" && git push origin staging' --",
-    "prod": "bash -c 'git checkout staging && git add . && git commit -m \"$1\" && git push origin staging && git checkout main && git merge staging' --"
+    "prod": "bash -c 'git checkout main && git merge staging' -- \"$1\" "
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.5",
