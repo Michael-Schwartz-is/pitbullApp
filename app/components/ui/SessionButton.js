@@ -4,10 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 
 function SessionButton({ info }) {
-  const { day, session, userSession } = info;
+  const { day, session, email } = info;
 
-  function handleSessionSignup() {
-    console.log(`${info.userSession} wants to join ${session} on ${day}`);
+  async function handleSessionSignup() {
+    console.log(info);
+    console.log(`${email} wants to join ${session} on ${day}`);
+    const res = await fetch("/api/join-session", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, day, session }),
+    });
   }
 
   return (

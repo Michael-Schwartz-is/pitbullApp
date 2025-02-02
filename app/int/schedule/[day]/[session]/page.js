@@ -35,7 +35,9 @@ async function session({ params }) {
   return (
     <div className="">
       <Dialog>
-        <DialogTrigger>Open</DialogTrigger>
+        <DialogTrigger className="absolute bottom-20 left-[50%] translate-x-[-50%] z-50">
+          Login
+        </DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Are you absolutely sure?</DialogTitle>
@@ -43,11 +45,11 @@ async function session({ params }) {
               This action cannot be undone. This will permanently delete your account and remove
               your data from our servers.
             </DialogDescription>
+            <SessionButton info={info} />
           </DialogHeader>
         </DialogContent>
       </Dialog>
 
-      <SessionButton info={info} />
       <Container>
         <div className="gap-4 max-w-[30rem] mx-auto">
           <TitleBar
