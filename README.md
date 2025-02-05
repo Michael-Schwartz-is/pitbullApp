@@ -69,3 +69,10 @@ name
 email
 image
 role - admin, user, mod
+
+plan:
+
+1. setup Express
+2. create basic API endpoints(login, signup, session booking)
+3. Middleware for Auth (users and roles) + testing
+4. integrating with the front end

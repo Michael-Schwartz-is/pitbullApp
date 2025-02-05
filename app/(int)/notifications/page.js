@@ -176,7 +176,7 @@ function page() {
         <h1 className="text-2xl font-bold mb-10">הודעות מערכת</h1>
         {coachMessages.map((msg) => (
           <div
-            className={`p-4 border relative border-stone-200 bg-white rounded-md m-2 ${
+            className={`p-4 border relative border-stone-200 dark:bg-stone-800 bg-white rounded-md m-2 ${
               msg.read && "border-orange-400"
             } `}
           >

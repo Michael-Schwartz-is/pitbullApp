@@ -17,8 +17,8 @@ import {
 } from "@/components/ui/dialog";
 
 import RandomImage from "@/app/components/ui/RandomImage";
-import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { JoinSessionModal } from "@/app/components/ui/JoinSessionModal";
+import { connectToDB } from "@/lib/utils";
 
 async function session({ params }) {
   const userSession = await auth();
@@ -37,7 +37,7 @@ async function session({ params }) {
 
   return (
     <div>
-      <Dialog>
+      {/* <Dialog>
         <DialogTrigger className="fixed bottom-20 flex left-[50%] translate-x-[-50%] z-50 bg-orange-400 text-white dark:text-black rounded-md p-4">
           <Plus />
           להצטרף לאמון זה
@@ -48,15 +48,15 @@ async function session({ params }) {
             <DialogDescription>
               בוא נוודא שאתה מתכוון באמת לבוא ורק אם כן, תרשם. אל תתפוס מקומות של אחרים...
             </DialogDescription>
-
-            <SessionButton info={info} />
           </DialogHeader>
 
           <DialogFooter>
+            <SessionButton info={info} />
+            <DialogTrigger>hello!</DialogTrigger>
             <Button type="submit">Confirm</Button>
           </DialogFooter>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
 
       <Container>
         <div className="gap-4 max-w-[30rem] mx-auto">
@@ -73,7 +73,7 @@ async function session({ params }) {
               return (
                 <div
                   key={person._id}
-                  className="flex flex-col p-3 bg-white dark:bg-stone-800 gap-2 items-center"
+                  className="flex rounded-lg flex-col p-3 bg-white dark:bg-stone-800 gap-2 text-center items-center justify-center"
                 >
                   {person.user_id?.image ? (
                     <Image
@@ -93,6 +93,7 @@ async function session({ params }) {
             })}
           </div>
         </div>
+        <JoinSessionModal info={info} />
       </Container>
     </div>
   );

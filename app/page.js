@@ -43,7 +43,7 @@ import { redirect } from "next/navigation";
 export default async function page() {
   const session = await auth();
 
-  const target = session ? "/int/schedule" : "/login";
+  const target = session ? "/schedule" : "/login";
   redirect(target);
 
   return <div>page</div>;

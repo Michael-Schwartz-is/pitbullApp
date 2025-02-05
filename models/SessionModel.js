@@ -32,7 +32,7 @@ const sessionSchema = new Schema({
 });
 
 //                          singular    schema         collection name
-const SessionModel = models.session || model("session", sessionSchema, "sessions");
+const SessionModel = models?.session || model("session", sessionSchema, "sessions");
 
 /*
     SessionModel.findOne()

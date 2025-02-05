@@ -5,12 +5,14 @@ import TitleBar from "@/app/components/ui/TitleBar";
 import Container from "@/app/components/ui/Container";
 import { getSessionsByDay } from "@/app/api/route";
 import { daysOfWeek } from "../page";
+import { calcDayFromTimestamp } from "@/lib/utils";
 
 async function trainingDay({ params }) {
   const { day } = await params;
 
   const today = daysOfWeek.find((d) => d.name === day);
   const sessions = await getSessionsByDay(day);
+  const nextSessionDate = calcDayFromTimestamp(day);
 
   return (
     <Container>
@@ -22,7 +24,7 @@ async function trainingDay({ params }) {
               <Link
                 key={session._id}
                 className="flex p-4 gap-3 bg-white dark:bg-stone-800 md:hover:bg-orange-200 dark:md:hover:bg-orange-400 transition-colors"
-                href={`/int/schedule/${day}/${session.english_name}`}
+                href={`/schedule/${day}/${session.english_name}`}
               >
                 <Image
                   src={trainImage}
@@ -33,7 +35,9 @@ async function trainingDay({ params }) {
                 />
                 <div>
                   <div className="font-bold">{`${session.english_name} ${session.emoji} ${session.heb_name}`}</div>
-                  <div>{session.time}</div>
+                  <div>
+                    {session.time} {nextSessionDate.date}
+                  </div>
                 </div>
               </Link>
             );

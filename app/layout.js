@@ -23,8 +23,8 @@ export default async function RootLayout({ children }) {
       <body dir="rtl" className={`${font.className} font-medium antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {userData && <NavBar />}
-          <div className="bg-slate-50 dark:bg-slate-50/0">{children}</div>
         </ThemeProvider>
+        <div className="bg-slate-50 dark:bg-slate-50/0">{children}</div>
       </body>
     </html>
   );

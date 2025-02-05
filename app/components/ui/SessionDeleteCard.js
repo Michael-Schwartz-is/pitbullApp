@@ -1,25 +1,28 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Edit, Trash } from "lucide-react";
+import { Trash } from "lucide-react";
 
 function SessionDeleteCard({ session }) {
+  session = JSON.parse(session);
   return (
     <div dir="rtl">
-      <Card className="flex flex-col gap-2 p-2">
-        <div className="flex gap-2 p-2">
+      <Card className="p-2">
+        <div className="flex flex-col gap-2 min-w-[20rem] p-2">
           <p>{session.english_name}</p>
           <p>{session.heb_name}</p>
           <p>{session.day}</p>
           <p>{session.time}</p>
+          <p>{session._id}</p>
+          <>{!session.active && "archive"}</>
         </div>
-        <div className="flex justify-end gap-2">
-          <Button>
+        <div className="flex justify-end gap-2 p-2">
+          <Button
+          // onClick={() => toggleActiveSessionById(session._id)}
+          >
             <Trash />
-            <span className="ml-2">למחוק</span>
-          </Button>
-          <Button>
-            <Edit />
-            <span className="ml-2">לערוך</span>
+            <span className="ml-2">לארכב</span>
           </Button>
         </div>
       </Card>

@@ -5,7 +5,6 @@ import { auth, signOut } from "@/auth";
 import { redirect } from "next/navigation";
 import { Component } from "@/components/ui/WeeklyChart";
 import { Button } from "@/components/ui/button";
-import RandomGymImage from "@/app/components/ui/randomGymImage";
 import RandomImage from "@/app/components/ui/RandomImage";
 import ModeToggle from "@/components/mode-toggle";
 
@@ -48,13 +47,13 @@ async function Profile() {
 
   const sessionList = sortedSessions.map((session) => (
     <li key={session.email}>
-      <div className="flex justify-between p-3 bg-white shadow-sm shadow-stone-100">
+      <div className="flex justify-between p-3 bg-white shadow-sm  dark:bg-stone-800 shadow-stone-100 dark:border-transparent dark:shadow-stone-100/0">
         <div className="felx flex-col">
           <p className="font-bold">{session.session}</p>
           <p className="text-sm">{session.day}</p>
         </div>
 
-        <p className="text-slate-600 text-sm">
+        <p className=" text-sm">
           {new Date(session.session_date).toLocaleString("default", {
             day: "2-digit",
             month: "short",
@@ -101,7 +100,7 @@ async function Profile() {
           <div className="text-center gap-2 flex items-center flex-col mx-auto">
             <p className="text-2xl font-bold">{user.name}</p>
             <p>{`${sessionList.length} sessions`}</p>
-            <p className="text-sm py-1 px-3 rounded-md border border-stone-200 bg-orange-100">
+            <p className="text-sm py-1 px-3 rounded-md border dark:border-transparent border-stone-200 bg-orange-100 dark:bg-stone-800">
               {`Member Since `}
               <span className="font-bold text-stone-600">
                 {`${firstSession.toLocaleString("default", {
@@ -114,7 +113,7 @@ async function Profile() {
             <div className="flex justify-center flex-wrap gap-2 py-6">
               {Object.entries(formattedSessions()).map(([, value]) => {
                 return (
-                  <p className="p-2 rounded-md border border-stone-100 text-stone-400 font-bold text-sm uppercase  bg-white">
+                  <p className="p-2 rounded-md border dark:border-transparent border-stone-100 text-stone-400 font-bold text-sm uppercase  dark:bg-stone-800 bg-white">
                     {value[0]} - {value[1]}
                   </p>
                 );

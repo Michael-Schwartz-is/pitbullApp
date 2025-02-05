@@ -6,8 +6,6 @@ import { redirect } from "next/navigation";
 import Container from "@/app/components/ui/Container";
 import RandomGymImage from "@/app/components/ui/randomGymImage";
 
-// const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
 export const daysOfWeek = [
   { name: "Sunday", hebName: "ראשון" },
   { name: "Monday", hebName: "שני" },
@@ -37,13 +35,9 @@ async function Train() {
                 function getAndLogRandomValue() {
                   const value = Math.floor(Math.random() * randomImage.length);
                   if (randomList.some((li) => li === value)) {
-                    console.log("running again");
                     return getAndLogRandomValue();
                   } else {
                     randomList.push(value);
-                    console.log(
-                      `this is image for ${day.name} => /int/schedule/${randomImage[value]}`
-                    );
                     return randomImage[value];
                   }
                 }
@@ -54,7 +48,7 @@ async function Train() {
                     <Link
                       id="day_card"
                       className=" relative  flex flex-col rounded-md basis-1/2 overflow-clip border bg-white dark:bg-stone-800 border-cyan-50 dark:border-cyan-50/0 md:hover:bg-orange-200 dark:md:hover:bg-orange-500 transition-colors"
-                      href={`/int/schedule/${day.name}`}
+                      href={`/schedule/${day.name}`}
                     >
                       <Image
                         src={imageItem}

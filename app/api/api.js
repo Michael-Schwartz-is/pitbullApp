@@ -55,9 +55,6 @@ export function getUserInfo(users) {
 export function getSessionsByday(day) {
   return readData("sessions").filter((session) => session.day === day);
   // readData("bookings").filter(booking.className === )
-
-  // the problem here is that we need to a. add a _day to each booking b. add nextTainingDate based on the day.
-  // filter bookings by day, and
 }
 
 export function getDaysWithTrainings() {
@@ -75,35 +72,4 @@ export function getUserSessionHistory(user) {
 export function getSessionInfo(day, name) {
   const allSessions = readData("schedule");
   return allSessions.day.find((session) => (session.name = name));
-
-  // we dont need to refactor the session mechanism to store attendee submissions in a list.
-  // we can then filter that list to get different slices:
-  // 1. sessions with users that have not passed yet
-  // 2. all past and future user sessions
-}
-
-// let doubles = map([1, 2, 3], (n) => {
-//   return n * 2;
-// });
-
-// let triples = map([1, 2, 3], (n) => {
-//   return n * 3;
-// });
-
-// function forEach(arr, callback) {
-//   for (let i = 0; i < arr.length; i++) {
-//     callback(arr[i]);
-//   }
-// }
-
-// function map(arr, callback) {
-//   let newArr = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     newArr.push(callback(arr[i]));
-//   }
-//   return newArr;
-// }
-
-export function page() {
-  return <div>fun</div>;
 }

@@ -2,9 +2,7 @@ import fs from "fs";
 import path from "path";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Edit2, UserPlus2Icon } from "lucide-react";
-import { connectToDB } from "@/lib/utils";
-import userModel from "@/models/UsersModel";
+import { UserPlus2Icon } from "lucide-react";
 
 // Get a random image from the `/public/images` folder
 async function getRandomImage() {

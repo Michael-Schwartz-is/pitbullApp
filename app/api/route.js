@@ -9,12 +9,12 @@ export async function getAttendeesByDayAndSession(day, session) {
   const attendeesList = await SessionModel.find({
     name: session,
     day: day,
-    // date: { $gte: now },
+    date: { $gte: now },
   })
     .populate("schedule_id")
     .populate("user_id");
 
-  return attendeesList;
+  return attendeesList.map((a) => a.toObject());
 }
 
 export async function getSessionsByDay(day) {
@@ -22,7 +22,8 @@ export async function getSessionsByDay(day) {
   const ScheduleList = await ScheduleModel.find({
     day: day,
     active: { $ne: false },
-  });
+  }).lean();
 
-  return ScheduleList;
+  // return ScheduleList.map((a) => a.toObject());
+  return ScheduleList.map((a) => ({ ...a, _id: a._id.toString() }));
 }
