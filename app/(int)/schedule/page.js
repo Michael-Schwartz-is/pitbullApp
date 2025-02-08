@@ -18,6 +18,16 @@ export const daysOfWeek = [
 
 async function Train() {
   const session = await auth();
+
+  //   {
+  //     "user": {
+  //         "name": "מיכאל שוורץ",
+  //         "email": "micha.gash@gmail.com",
+  //         "image": "https://lh3.googleusercontent.com/a/ACg8ocJrpF6DpUloyfKJWLfYcC5wKgoTV_NNYOopjdGVzL5lThMQfQTS=s96-c"
+  //     },
+  //     "expires": "2025-03-09T07:39:33.215Z"
+  // }
+
   if (!session) redirect("/login");
   const randomImage = await RandomGymImage();
   let randomList = [];

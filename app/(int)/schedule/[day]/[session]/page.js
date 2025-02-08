@@ -1,24 +1,11 @@
 import { getAttendeesByDayAndSession } from "@/app/api/route";
 import Container from "@/app/components/ui/Container";
-import SessionButton from "@/app/components/ui/SessionButton";
 import TitleBar from "@/app/components/ui/TitleBar";
 import { auth } from "@/auth";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-
 import RandomImage from "@/app/components/ui/RandomImage";
 import { JoinSessionModal } from "@/app/components/ui/JoinSessionModal";
-import { connectToDB } from "@/lib/utils";
 
 async function session({ params }) {
   const userSession = await auth();
@@ -33,31 +20,8 @@ async function session({ params }) {
 
   const attendeesList = await getAttendeesByDayAndSession(day, session);
 
-  // console.log("funnn =>>>", await getAttendeesByDayAndSession(day, session));
-
   return (
     <div>
-      {/* <Dialog>
-        <DialogTrigger className="fixed bottom-20 flex left-[50%] translate-x-[-50%] z-50 bg-orange-400 text-white dark:text-black rounded-md p-4">
-          <Plus />
-          להצטרף לאמון זה
-        </DialogTrigger>
-        <DialogContent className="text-center p-10 max-w-[20rem]">
-          <DialogHeader className="flex flex-col gap-3">
-            <DialogTitle>להרשם לאימון {[day, session]}</DialogTitle>
-            <DialogDescription>
-              בוא נוודא שאתה מתכוון באמת לבוא ורק אם כן, תרשם. אל תתפוס מקומות של אחרים...
-            </DialogDescription>
-          </DialogHeader>
-
-          <DialogFooter>
-            <SessionButton info={info} />
-            <DialogTrigger>hello!</DialogTrigger>
-            <Button type="submit">Confirm</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog> */}
-
       <Container>
         <div className="gap-4 max-w-[30rem] mx-auto">
           <TitleBar
