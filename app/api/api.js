@@ -1,12 +1,12 @@
 import fs, { read } from "fs";
 
-// export const files = {
-//   users: "./app/api/dummy-data/users.json",
-//   sessions: "./app/api/dummy-data/sessions.json",
-//   schedule: "./app/api/dummy-data/schedule.json",
-//   bookings: "./app/api/dummy-data/bookings.json",
-//   pastSessions: "./_test.json",
-// };
+export const files = {
+  users: "./app/api/dummy-data/users.json",
+  sessions: "./app/api/dummy-data/sessions.json",
+  schedule: "./app/api/dummy-data/schedule.json",
+  bookings: "./app/api/dummy-data/bookings.json",
+  pastSessions: "./_test.json",
+};
 
 export function readData(key) {
   return JSON.parse(fs.readFileSync(files[key], "utf-8"));
