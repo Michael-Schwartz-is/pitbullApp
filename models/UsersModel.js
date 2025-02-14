@@ -1,4 +1,5 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 const userSchema = new Schema({
   name: {
@@ -27,6 +28,11 @@ const userSchema = new Schema({
     default: "",
     trim: true,
   },
+  updated_image: {
+    type: String,
+    default: "",
+    trim: true,
+  },
   created_at: {
     type: Date,
     default: Date.now,
@@ -37,6 +43,8 @@ const userSchema = new Schema({
   },
 });
 
-const userModel = models?.user ?? model("user", userSchema, "users");
+// const userModel = models?.user ?? model("user", userSchema, "users");
+
+const userModel = mongoose.models?.user ?? mongoose.model("user", userSchema, "users");
 
 export default userModel;

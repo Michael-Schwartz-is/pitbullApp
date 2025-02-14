@@ -18,14 +18,18 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const userData = await auth();
+  const publishedAt = new Date().toString();
+
   return (
-    <html lang="en">
-      <body dir="rtl" className={`${font.className} font-medium antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {userData && <NavBar />}
-        </ThemeProvider>
-        <div className="bg-slate-50 dark:bg-slate-50/0">{children}</div>
-      </body>
-    </html>
+    <>
+      <html lang="en" published={publishedAt}>
+        <body dir="rtl" className={`${font.className} font-medium antialiased`}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {userData && <NavBar />}
+          </ThemeProvider>
+          <div className="bg-slate-50 dark:bg-slate-50/0">{children}</div>
+        </body>
+      </html>
+    </>
   );
 }

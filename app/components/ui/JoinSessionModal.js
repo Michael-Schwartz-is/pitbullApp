@@ -3,21 +3,37 @@
 import { Button } from "@/components/ui/button";
 import SessionButton from "./SessionButton";
 import { useState } from "react";
+import { revalidatePath } from "next/cache";
 
 export const JoinSessionModal = ({ info }) => {
   const { day, session, email } = info;
 
   const [open, setOpen] = useState(false);
+  const [attending, setAttending] = useState(false);
 
   const toggleOpen = () => {
     setOpen(!open);
     console.log(open);
   };
 
-  const handleUserReg = (info) => {
-    console.log(`${email} wants to join ${session} on ${day}`);
-    setOpen(!open);
-  };
+  async function handleUserReg() {
+    try {
+      const res = await fetch("/api/join-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, day, session }),
+      });
+      await res.json();
+      if (res.success) {
+        console.log(res);
+        setOpen(false);
+        setAttending(!attending);
+        revalidatePath("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div>
@@ -25,6 +41,8 @@ export const JoinSessionModal = ({ info }) => {
         <SessionButton
           info={info}
           setOpen={setOpen}
+          attending={attending}
+          setAttending={setAttending}
           open={open}
           onClick={() => {
             setOpen(true);
@@ -37,13 +55,19 @@ export const JoinSessionModal = ({ info }) => {
               className="flex items-center bg-stone-900/70 justify-center right-0 top-0 w-full h-full"
             ></div>
             <div className="p-6 text-stone-300 bg-stone-900 flex flex-col gap-4 text-center justify-center fixed  z-30">
-              <p className="text-3xl"> להרשם לאימון ?</p>
+              <p className="text-3xl">{attending ? "למחוק אותך מהאימון?" : `להרשם לאימון ?`}</p>
               <div className="text-orange-500 text-sm">
                 <p>{`שיעור: ${day} / ${session}`}</p>
                 <p className="opacity-55">{info.email}</p>
               </div>
-              <p> לחץ לאישור בשביל להרשם לשיעור הזה</p>
-              <Button onClick={() => handleUserReg(info)}>אני נרשמת</Button>
+              <p>
+                {attending
+                  ? `לחץ לאישור בשביל לבטל את ההרשמה `
+                  : `לחץ לאישור בשביל להרשם לשיעור הזה`}
+              </p>
+              <Button onClick={() => handleUserReg()}>
+                {attending ? `לא אגיע לאימון` : `אני נרשמת`}
+              </Button>
             </div>
           </div>
         )}

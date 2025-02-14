@@ -2,23 +2,35 @@ import { getAttendeesByDayAndSession } from "@/app/api/route";
 import Container from "@/app/components/ui/Container";
 import TitleBar from "@/app/components/ui/TitleBar";
 import { auth } from "@/auth";
-import Image from "next/image";
+import AttendeeList from "@/app/components/ui/AttendeeList";
 import { redirect } from "next/navigation";
-import RandomImage from "@/app/components/ui/RandomImage";
 import { JoinSessionModal } from "@/app/components/ui/JoinSessionModal";
+import { getMyFutureSessions } from "@/app/api/get-my-sessions/route";
 
 async function session({ params }) {
+  const { day, session } = await params;
   const userSession = await auth();
   if (!userSession) redirect("/login");
-  const { day, session } = await params;
 
+  const future = await getMyFutureSessions(day, session, userSession.user.email);
+
+  console.log(future);
   const info = {
     day,
     session,
     email: userSession.user.email,
   };
 
-  const attendeesList = await getAttendeesByDayAndSession(day, session);
+  future.forEach((session) => {
+    if (session.day === info.day && session.name === info.session) {
+      console.log(session);
+    } else {
+      console.log("nope");
+    }
+  });
+  const attendees = await getAttendeesByDayAndSession(day, session);
+
+  const attendeesList = attendees.reverse();
 
   return (
     <div>
@@ -32,30 +44,7 @@ async function session({ params }) {
             subText={`נותרו ${20 - attendeesList.length} מקומות פנויים `}
           />
 
-          <div className="grid grid-cols-3 gap-2">
-            {attendeesList.map((person) => {
-              return (
-                <div
-                  key={person._id}
-                  className="flex rounded-lg flex-col p-3 bg-white dark:bg-stone-800 gap-2 text-center items-center justify-center"
-                >
-                  {person.user_id?.image ? (
-                    <Image
-                      src={person.user_id?.image}
-                      width={80}
-                      height={64}
-                      alt={person.user_id.name}
-                      className="rounded-full overflow-clip aspect-square"
-                    />
-                  ) : (
-                    <RandomImage />
-                  )}
-
-                  <p>{person.user_id.name || person.user_id.email.split("@")[0]}</p>
-                </div>
-              );
-            })}
-          </div>
+          <AttendeeList attendeesList={JSON.stringify(attendeesList)} />
         </div>
         <JoinSessionModal info={info} />
       </Container>

@@ -3,31 +3,23 @@ import { getUserSessionHistory } from "../../api/api";
 import Container from "../../components/ui/Container";
 import { auth, signOut } from "@/auth";
 import { redirect } from "next/navigation";
-import { Component } from "@/components/ui/WeeklyChart";
 import { Button } from "@/components/ui/button";
 import RandomImage from "@/app/components/ui/RandomImage";
 import ModeToggle from "@/components/mode-toggle";
+import { getMyFutureSessions } from "@/app/api/get-my-sessions/route";
 
 async function Profile() {
-  const userData = await auth();
-  if (!userData?.user) return redirect("/login");
-  const { user } = userData;
+  const { user } = await auth();
+  if (!user) return redirect("/login");
   const userSessions = await getUserSessionHistory(user.email);
-  // const userSessions = await getUserSessionHistory("yonah93@gmail.com");
+  const futureSessions = await getMyFutureSessions(user.email);
+  const firstSession = new Date(userSessions[0].date);
 
-  const chartData = userSessions.reduce((acc, session) => {
-    const { day } = session; // Access the 'day' field directly
-    acc[day] = (acc[day] || 0) + 1;
-
-    return acc;
-  }, {});
-
-  function formattedSessions() {
+  async function formattedSessions(userSessions) {
     //count session occurances
-    const countSessions = userSessions.reduce((total, sess) => {
+    const countSessions = await userSessions.reduce((total, sess) => {
       const { session } = sess;
       total[session] = (total[session] || 0) + 1;
-
       return total;
     }, {});
 
@@ -35,6 +27,7 @@ async function Profile() {
     const sorted = Object.entries(countSessions).sort(([, a], [, b]) => b - a);
 
     const topFour = sorted.slice(0, 3);
+    console.log(topFour);
     const rest = sorted.slice(3).reduce((sum, [, value]) => sum + value, 0);
     if (rest > 0) topFour.push(["Other", rest]);
 
@@ -47,14 +40,13 @@ async function Profile() {
 
   const sessionList = sortedSessions.map((session) => (
     <li key={session.email}>
-      <div className="flex justify-between p-3 bg-white shadow-sm  dark:bg-stone-800 shadow-stone-100 dark:border-transparent dark:shadow-stone-100/0">
+      <div className="flex justify-between p-4 bg-white shadow-sm items-center dark:bg-stone-800 shadow-stone-100 dark:border-transparent dark:shadow-stone-100/0">
         <div className="felx flex-col">
-          <p className="font-bold">{session.session}</p>
+          <p className="font-bold">{session.schedule_id.heb_name}</p>
           <p className="text-sm">{session.day}</p>
         </div>
-
         <p className=" text-sm">
-          {new Date(session.session_date).toLocaleString("default", {
+          {new Date(session.date).toLocaleString("default", {
             day: "2-digit",
             month: "short",
             year: "numeric",
@@ -64,9 +56,8 @@ async function Profile() {
     </li>
   ));
 
-  const firstSession = new Date(sortedSessions[sortedSessions.length - 1].session_date);
   return (
-    <div dir="ltr">
+    <div>
       <div className="fixed z-50 px-4 top-0 w-full flex justify-between items-center">
         <ModeToggle />
 
@@ -75,7 +66,7 @@ async function Profile() {
             className="p-4"
             action={async () => {
               "use server";
-              await signOut("google");
+              await signOut();
             }}
           >
             <Button variant="outline" type="submit">

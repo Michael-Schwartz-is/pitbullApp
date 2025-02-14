@@ -24,7 +24,6 @@ name
 time
 hebrew_name
 active
-image
 
 This_Week_Sessions (a list of the next session and the people who b):
 user_email
@@ -45,3 +44,7 @@ plan:
 2. create basic API endpoints(login, signup, session booking)
 3. Middleware for Auth (users and roles) + testing
 4. integrating with the front end
+
+-- schedule - Lesson names and dates
+-- sessions - bookings of users to secheduled sessions
+-- users - user profile

@@ -1,4 +1,5 @@
-import { model, Schema, models } from "mongoose";
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 const sessionSchema = new Schema({
   user_id: {
@@ -32,7 +33,10 @@ const sessionSchema = new Schema({
 });
 
 //                          singular    schema         collection name
-const SessionModel = models?.session || model("session", sessionSchema, "sessions");
+// const SessionModel = models?.session || models("session", sessionSchema, "sessions");
+
+const SessionModel =
+  mongoose.models?.session || mongoose.model("session", sessionSchema, "sessions");
 
 /*
     SessionModel.findOne()
