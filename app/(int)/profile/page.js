@@ -15,24 +15,24 @@ async function Profile() {
   const futureSessions = await getMyFutureSessions(user.email);
   const firstSession = new Date(userSessions[0].date);
 
-  async function formattedSessions(userSessions) {
-    //count session occurances
-    // const countSessions = await userSessions.reduce((total, sess) => {
-    //   const { session } = sess;
-    //   total[session] = (total[session] || 0) + 1;
-    //   return total;
-    // }, {});
+  // async function formattedSessions(userSessions) {
+  //   count session occurances
+  //   const countSessions = await userSessions.reduce((total, sess) => {
+  //     const { session } = sess;
+  //     total[session] = (total[session] || 0) + 1;
+  //     return total;
+  //   }, {});
 
-    //sort
-    const sorted = Object.entries(countSessions).sort(([, a], [, b]) => b - a);
+  //   //sort
+  //   const sorted = Object.entries(countSessions).sort(([, a], [, b]) => b - a);
 
-    const topFour = sorted.slice(0, 3);
-    console.log(topFour);
-    const rest = sorted.slice(3).reduce((sum, [, value]) => sum + value, 0);
-    if (rest > 0) topFour.push(["Other", rest]);
+  //   const topFour = sorted.slice(0, 3);
+  //   console.log(topFour);
+  //   const rest = sorted.slice(3).reduce((sum, [, value]) => sum + value, 0);
+  //   if (rest > 0) topFour.push(["Other", rest]);
 
-    return topFour;
-  }
+  //   return topFour;
+  // }
 
   const sortedSessions = userSessions.sort(
     (a, b) => new Date(b.session_date) - new Date(a.session_date)
@@ -88,11 +88,11 @@ async function Profile() {
           ) : (
             <RandomImage update={!userData.user.image} width={100} height={100} />
           )}
-          <div className="text-center gap-2 flex items-center flex-col mx-auto">
+          <div className="text-center gap-2 flex items-center flex-col py-2 mx-auto">
             <p className="text-2xl font-bold">{user.name}</p>
-            <p>{`${sessionList.length} sessions`}</p>
+            <p>{`${sessionList.length} אימונים`}</p>
             <p className="text-sm py-1 px-3 rounded-md border dark:border-transparent border-stone-200 bg-orange-100 dark:bg-stone-800">
-              {`Member Since `}
+              {`תאריך הצטרפות `}
               <span className="font-bold text-stone-600">
                 {`${firstSession.toLocaleString("default", {
                   month: "short",
@@ -101,7 +101,7 @@ async function Profile() {
               </span>
             </p>
 
-            <div className="flex justify-center flex-wrap gap-2 py-6">
+            {/* <div className="flex justify-center flex-wrap gap-2 py-6">
               {Object.entries(formattedSessions()).map(([, value]) => {
                 return (
                   <p className="p-2 rounded-md border dark:border-transparent border-stone-100 text-stone-400 font-bold text-sm uppercase  dark:bg-stone-800 bg-white">
@@ -109,7 +109,7 @@ async function Profile() {
                   </p>
                 );
               })}
-            </div>
+            </div> */}
           </div>
         </div>
 

@@ -1,18 +1,3 @@
-# Pitbull App
+# Pitbull Gym Booking app
 
-Pitbull App is a web application built with Node.js, Express, MongoDB, and React. It manages training sessions, user profiles, and bookings.
-
-## Key Features
-
-- User authentication & authorization
-- Schedule management
-- Profile management
-- Booking system
-
-## Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/pitbull-app.git
-   cd pitbull-app
-   ```
+this is an app to help gym goers to sign up to their favourite sessions, see who else is coming and have fun while training.
