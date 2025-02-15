@@ -8,7 +8,6 @@ import { getAllFutureSessions } from "@/app/api/route";
 async function Train() {
   const session = await auth();
   if (!session) redirect("/login");
-  console.log(session);
   const userData = await addUserToDB(session);
   const allSessions = await getAllFutureSessions();
 

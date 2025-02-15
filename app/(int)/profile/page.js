@@ -17,11 +17,11 @@ async function Profile() {
 
   async function formattedSessions(userSessions) {
     //count session occurances
-    const countSessions = await userSessions.reduce((total, sess) => {
-      const { session } = sess;
-      total[session] = (total[session] || 0) + 1;
-      return total;
-    }, {});
+    // const countSessions = await userSessions.reduce((total, sess) => {
+    //   const { session } = sess;
+    //   total[session] = (total[session] || 0) + 1;
+    //   return total;
+    // }, {});
 
     //sort
     const sorted = Object.entries(countSessions).sort(([, a], [, b]) => b - a);

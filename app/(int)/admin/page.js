@@ -1,14 +1,10 @@
-import { connectToDB, getUserRole } from "@/lib/utils";
+import { connectToDB, daysOfWeek, getUserRole } from "@/lib/utils";
 import ScheduleModel from "@/models/ScheduleModel";
-import { daysOfWeek } from "../schedule/page";
 import Container from "@/app/components/ui/Container";
 
 // import { useState } from "react";
 import SessionDeleteCard from "@/app/components/ui/SessionDeleteCard";
-import DeleteSessionBtn from "@/app/components/ui/DeleteSessionBtn";
-import SessionModel from "@/models/SessionModel";
 import { auth } from "@/auth";
-import { redirect } from "next/navigation";
 
 // const [currSession, setCurrSession] = useState();
 
@@ -18,7 +14,7 @@ async function page() {
   console.log("Role =>", role);
 
   const ScheduleList = await ScheduleModel.find({
-    active: { $ne: false },
+    // active: { $ne: false },
   });
 
   console.log(ScheduleList.length);
@@ -33,13 +29,18 @@ async function page() {
   return (
     <div>
       <Container width="xl">
-        <div className="flex">
-          <div className="grid grid-cols-2 overflow-clip gap-2">
-            {daysOfWeek?.map((day) =>
-              ScheduleList.filter((d) => day.name === d.day).map((session) => {
-                return <SessionDeleteCard session={JSON.stringify(session)} />;
-              })
-            )}
+        <div className="">
+          <div className="overflow-clip gap-2">
+            {daysOfWeek?.map((day) => (
+              <>
+                <h2 className="text-3xl py-9">{day.hebName}</h2>
+                <div className="flex flex-wrap gap-2">
+                  {ScheduleList.filter((d) => day.name === d.day).map((session) => {
+                    return <SessionDeleteCard session={JSON.stringify(session)} />;
+                  })}
+                </div>
+              </>
+            ))}
           </div>
         </div>
       </Container>

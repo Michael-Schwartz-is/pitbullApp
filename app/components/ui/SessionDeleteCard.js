@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Trash } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 
 function SessionDeleteCard({ session }) {
   session = JSON.parse(session);
@@ -17,7 +18,18 @@ function SessionDeleteCard({ session }) {
           <p>{session._id}</p>
           <>{!session.active && "archive"}</>
         </div>
-        <div className="flex justify-end gap-2 p-2">
+        <div className="flex justify-between gap-2 p-2">
+          <div className="flex items-center gap-2">
+            <Switch
+              checked={session.active}
+              onCheckedChange={() => {
+                console.log("change!");
+              }}
+              disabled
+              aria-readonly
+            />
+            פעיל
+          </div>
           <Button
           // onClick={() => toggleActiveSessionById(session._id)}
           >
