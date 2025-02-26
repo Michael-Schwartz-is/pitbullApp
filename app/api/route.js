@@ -27,6 +27,15 @@ export async function getSessionsByDay(day) {
   return ScheduleList.map((a) => ({ ...a, _id: a._id.toString() }));
 }
 
+export async function getAllActiveSchedule() {
+  await connectToDB();
+  const ScheduleList = await ScheduleModel.find({
+    active: { $ne: false },
+  }).lean();
+
+  return ScheduleList.map((a) => ({ ...a, _id: a._id.toString() }));
+}
+
 export async function getAllFutureSessions() {
   await connectToDB();
   const ScheduleList = await SessionModel.find({

@@ -39,7 +39,7 @@ async function Profile() {
   );
 
   const sessionList = sortedSessions.map((session) => (
-    <li key={session.email}>
+    <li key={session.session_date}>
       <div className="flex justify-between p-4 bg-white shadow-sm items-center dark:bg-stone-800 shadow-stone-100 dark:border-transparent dark:shadow-stone-100/0">
         <div className="felx flex-col">
           <p className="font-bold">{session.schedule_id.heb_name}</p>

@@ -25,6 +25,10 @@ const sessionSchema = new Schema({
     type: Date,
     required: true,
   },
+  email: {
+    type: String,
+    required: false,
+  },
   day: {
     type: String,
     required: true,
@@ -37,18 +41,5 @@ const sessionSchema = new Schema({
 
 const SessionModel =
   mongoose.models?.session || mongoose.model("session", sessionSchema, "sessions");
-
-/*
-    SessionModel.findOne()
-    SessionModel.findOneAndUpdate()
-    SessionModel.find()
-    SessionModel.findOneAndDelete()
-    https://mongoosejs.com/docs/models.html
-
-    SessionModel.create({
-        user_email: "a@a.a",
-        sesion_day..
-    })
-*/
 
 export default SessionModel;

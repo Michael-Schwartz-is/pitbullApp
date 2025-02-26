@@ -1,36 +1,35 @@
-import { getAttendeesByDayAndSession } from "@/app/api/route";
+"use client";
+
 import Container from "@/app/components/ui/Container";
 import TitleBar from "@/app/components/ui/TitleBar";
-import { auth } from "@/auth";
 import AttendeeList from "@/app/components/ui/AttendeeList";
-import { redirect } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 import { JoinSessionModal } from "@/app/components/ui/JoinSessionModal";
 import { getMyFutureSessions } from "@/app/api/get-my-sessions/route";
+import { auth } from "@/auth";
+import { useGetAllFeatureSessions } from "@/api/sessions/sessions";
+import { useGetUserInfo } from "@/api/user/user";
 
-async function session({ params }) {
-  const { day, session } = await params;
-  const userSession = await auth();
+async function session() {
+  const { day, session } = useParams();
+  const userSession = auth();
   if (!userSession) redirect("/login");
+  console.log(userSession);
 
-  const future = await getMyFutureSessions(day, session, userSession.user.email);
+  // const future = getMyFutureSessions(day, session, userSession?.user?.email);
 
-  console.log(future);
-  const info = {
-    day,
-    session,
-    email: userSession.user.email,
-  };
+  const { data: attendeesList } = useGetAllFeatureSessions();
+  const { data: userData } = useGetUserInfo();
 
-  future.forEach((session) => {
-    if (session.day === info.day && session.name === info.session) {
-      console.log(session);
-    } else {
-      console.log("nope");
-    }
-  });
-  const attendees = await getAttendeesByDayAndSession(day, session);
+  // const info = {
+  //   day,
+  //   session,
+  //   email: userSession.user.email,
+  // };
 
-  const attendeesList = attendees.reverse();
+  // const attendees = await getAttendeesByDayAndSession(day, session);
+
+  // const attendeesList = attendees.reverse();
 
   return (
     <div>
@@ -51,4 +50,5 @@ async function session({ params }) {
     </div>
   );
 }
+
 export default session;

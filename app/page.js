@@ -1,50 +1,39 @@
-// import Image from "next/image";
-// import trainImage from "./assets/train.jpg";
-// import Link from "next/link";
+"use client";
 
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import Container from "@/app/components/ui/Container";
+import { DaysOfWeek } from "@/app/components/ui/DaysOfWeek";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
+import { useGetUserInfo } from "@/api/user/user";
+import { useGetAllFeatureSessions } from "@/api/sessions/sessions";
 
-// const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+function Home() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
-// function homepage() {
-//   return (
-//     <>
-//       <main>
-//         <div className="  pt-8 max-w-[30rem] mx-auto">
-//           <h1 className="text-2xl font-bold">Trainings</h1>
-//         </div>
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [router, status]);
 
-//         <div id="wrapper_day_card" className="p-8">
-//           <div className="max-w-[30rem] w-full mx-auto grid grid-cols-2 gap-3">
-//             {daysOfWeek.map((day) => {
-//               return (
-//                 <Link
-//                   id="day_card"
-//                   className="rounded-md basis-1/2 overflow-clip border bg-white border-cyan-50 md:hover:bg-orange-200 transition-colors"
-//                   href={`/schedule/${day}`}
-//                 >
-//                   <Image src={trainImage} className="" width={300} height={100} alt="thing" />
-//                   <div className="p-2">
-//                     <p className="font-bold text-xs uppercase">{day}</p>
-//                     <p>date of next training</p>
-//                   </div>
-//                 </Link>
-//               );
-//             })}
-//           </div>
-//         </div>
-//       </main>
-//     </>
-//   );
-// }
-// export default homepage;
+  const { data: allFeatureSessions } = useGetAllFeatureSessions();
+  const { data: userData } = useGetUserInfo();
+  console.log(allFeatureSessions);
 
-export default async function page() {
-  const session = await auth();
-
-  const target = session ? "/schedule" : "/login";
-  redirect(target);
-
-  return <div>page</div>;
+  return (
+    <>
+      <main>
+        <Container>
+          <div className="max-w-[30rem] mb-8 mx-auto">
+            <h1 className="text-2xl font-bold ">לוז אימונים</h1>
+            <p>שלום {session && session.user.name.split(" ")[0]}!</p>
+          </div>
+          <DaysOfWeek />
+        </Container>
+      </main>
+    </>
+  );
 }
+export default Home;

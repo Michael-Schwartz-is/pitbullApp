@@ -14,7 +14,7 @@ const getRandomIndices = (arr) => {
       ];
 };
 
-export default async function RandomGymImage() {
+export async function RandomGymImage() {
   const imageDir = path.join(process.cwd(), "public/bjj_img");
   const files = fs.readdirSync(imageDir);
 

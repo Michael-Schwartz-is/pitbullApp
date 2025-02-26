@@ -11,7 +11,7 @@ async function NavBar() {
       <div className="fixed z-50 w-full flex justify-center bottom-3">
         <div className="header-wrapper shadow-xl shadow-orange-800/10 bg-stone-800  rounded-full text-stone-50  ">
           <header className="flex justify-center items-center px-8 pt-2 pb-1 max-w-[30rem] mx-auto gap-12 ">
-            <ActiveLink icon={<CalendarFold />} label={"אימונים"} href={"/schedule"}></ActiveLink>
+            <ActiveLink icon={<CalendarFold />} label={"אימונים"} href={"/"}></ActiveLink>
 
             <ActiveLink icon={<SignIn />} href={"/profile"}></ActiveLink>
 
