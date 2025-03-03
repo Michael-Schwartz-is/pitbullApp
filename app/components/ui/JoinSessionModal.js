@@ -3,36 +3,23 @@
 import { Button } from "@/components/ui/button";
 import SessionButton from "./SessionButton";
 import { useState } from "react";
-import { revalidatePath } from "next/cache";
+import { useAddUserToTraining, useGetAllFeatureSessions } from "@/client/sessions/sessions";
 
 export const JoinSessionModal = ({ info }) => {
-  const { day, session, email } = info;
-
+  const { day, session, email, attending } = info;
+  const addUserToTrainig = useAddUserToTraining();
   const [open, setOpen] = useState(false);
-  const [attending, setAttending] = useState(false);
+  const { data: allFutureSessions } = useGetAllFeatureSessions();
 
   const toggleOpen = () => {
     setOpen(!open);
-    console.log(open);
   };
 
-  async function handleUserReg() {
-    try {
-      const res = await fetch("/api/join-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, day, session }),
-      });
-      await res.json();
-      if (res.success) {
-        console.log(res);
-        setOpen(false);
-        setAttending(!attending);
-        revalidatePath("/");
-      }
-    } catch (error) {
-      console.error(error);
-    }
+  const checkAttending = () => {};
+
+  function handleUserReg() {
+    addUserToTrainig.mutate({ email, day, session });
+    setOpen(false);
   }
 
   return (
@@ -41,8 +28,6 @@ export const JoinSessionModal = ({ info }) => {
         <SessionButton
           info={info}
           setOpen={setOpen}
-          attending={attending}
-          setAttending={setAttending}
           open={open}
           onClick={() => {
             setOpen(true);

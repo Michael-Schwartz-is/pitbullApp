@@ -1,7 +1,9 @@
+import { auth } from "@/auth";
 import { connectToDB } from "@/lib/utils";
 import ScheduleModel from "@/models/ScheduleModel";
 import SessionModel from "@/models/SessionModel";
 import userModel from "@/models/UsersModel";
+import { NextResponse } from "next/server";
 
 export async function getAttendeesByDayAndSession(day, session) {
   await connectToDB();
@@ -69,10 +71,25 @@ export async function addBookingToSession({ day, session, email }) {
   };
 }
 
-// AUTH AND CRUD OPERATIONS
-// --------------------------------
-// add booking to session list
-// allow users to add image and update their email or change their name
-// automatocally (progressively) update the user's name and email from social auth.
-// social login (already in place) login with email and password
-// bcrypt the password and decrypt it when needed.
+export async function getUserSessionHistory(email) {
+  await connectToDB();
+  const user = await userModel.findOne({ email });
+  console.log("here", user);
+  const histoy = await SessionModel.find({ user_id: user.id }).sort({ date: 1 });
+
+  return {
+    user,
+    histoy,
+  };
+}
+
+export const GET = auth(async function GET(req) {
+  if (!req.auth) {
+    return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
+  }
+  const data = await getUserSessionHistory(req.auth.user.email);
+  return NextResponse.json({
+    data,
+    req,
+  });
+});

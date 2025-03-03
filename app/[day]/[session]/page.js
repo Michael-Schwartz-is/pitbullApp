@@ -3,52 +3,59 @@
 import Container from "@/app/components/ui/Container";
 import TitleBar from "@/app/components/ui/TitleBar";
 import AttendeeList from "@/app/components/ui/AttendeeList";
-import { redirect, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { JoinSessionModal } from "@/app/components/ui/JoinSessionModal";
-import { getMyFutureSessions } from "@/app/api/get-my-sessions/route";
-import { auth } from "@/auth";
-import { useGetAllFeatureSessions } from "@/api/sessions/sessions";
-import { useGetUserInfo } from "@/api/user/user";
+import { useGetAllFeatureSessions } from "@/client/sessions/sessions";
+import { useGetUserInfo } from "@/client/user/user";
+import { useIsAuthenticated } from "@/hooks/is-authenticated";
+import { useState } from "react";
+import { cap } from "@/lib/utils";
+import { Loader } from "lucide-react";
 
-async function session() {
+export default function Session() {
+  useIsAuthenticated();
+
+  const [attending, setAttending] = useState(false);
   const { day, session } = useParams();
-  const userSession = auth();
-  if (!userSession) redirect("/login");
-  console.log(userSession);
-
-  // const future = getMyFutureSessions(day, session, userSession?.user?.email);
-
-  const { data: attendeesList } = useGetAllFeatureSessions();
+  const { data: allFutureSessions, isLoading } = useGetAllFeatureSessions();
   const { data: userData } = useGetUserInfo();
 
-  // const info = {
-  //   day,
-  //   session,
-  //   email: userSession.user.email,
-  // };
+  const info = {
+    day,
+    session,
+    email: userData?.email,
+    attending,
+  };
 
-  // const attendees = await getAttendeesByDayAndSession(day, session);
+  const today = cap(day);
 
-  // const attendeesList = attendees.reverse();
+  const attendeesList =
+    allFutureSessions?.sessions?.filter((s) => s.day === today && s.name === session).reverse() ||
+    [];
 
   return (
     <div>
       <Container>
         <div className="gap-4 max-w-[30rem] mx-auto">
           <TitleBar
-            title={`${day} / ${session
+            title={`${today} / ${session
               .split("_")
               .map((a) => a.charAt(0).toUpperCase() + a.slice(1))
               .join(" ")}`}
-            subText={`נותרו ${20 - attendeesList.length} מקומות פנויים `}
+            subText={`נותרו ${20 - attendeesList?.length} מקומות פנויים `}
           />
-
-          <AttendeeList attendeesList={JSON.stringify(attendeesList)} />
+          {!!attendeesList?.length && (
+            <AttendeeList attendeesList={JSON.stringify(attendeesList)} />
+          )}
+          {isLoading && (
+            <p className="text-2xl">
+              {" "}
+              <Loader /> טוען...
+            </p>
+          )}
         </div>
         <JoinSessionModal info={info} />
       </Container>
     </div>
   );
 }
-
-export default session;

@@ -1,125 +1,76 @@
+"use client";
+
 import Image from "next/image";
-import { getUserSessionHistory } from "../../api/api";
-import Container from "../../components/ui/Container";
-import { auth, signOut } from "@/auth";
-import { redirect } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import Container from "../components/ui/Container";
 import RandomImage from "@/app/components/ui/RandomImage";
 import ModeToggle from "@/components/mode-toggle";
-import { getMyFutureSessions } from "@/app/api/get-my-sessions/route";
+import { useIsAuthenticated } from "@/hooks/is-authenticated";
+import LogoutForm from "../components/LogoutForm";
+import { useGetUserInfo } from "@/client/user/user";
+import { useGetAllUserSessions } from "@/client/sessions/sessions";
+import { formatDate } from "date-fns";
+import { join } from "path";
 
-async function Profile() {
-  const { user } = await auth();
-  if (!user) return redirect("/login");
-  const userSessions = await getUserSessionHistory(user.email);
-  const futureSessions = await getMyFutureSessions(user.email);
-  const firstSession = new Date(userSessions[0].date);
+export default function Profile() {
+  useIsAuthenticated();
+  const { data: user } = useGetUserInfo();
+  const {
+    data: sessionList,
+    isLoading: sessionsLoading,
+    error: error,
+  } = useGetAllUserSessions(user?.email, {
+    enabled: !!user?.email,
+  });
 
-  // async function formattedSessions(userSessions) {
-  //   count session occurances
-  //   const countSessions = await userSessions.reduce((total, sess) => {
-  //     const { session } = sess;
-  //     total[session] = (total[session] || 0) + 1;
-  //     return total;
-  //   }, {});
-
-  //   //sort
-  //   const sorted = Object.entries(countSessions).sort(([, a], [, b]) => b - a);
-
-  //   const topFour = sorted.slice(0, 3);
-  //   console.log(topFour);
-  //   const rest = sorted.slice(3).reduce((sum, [, value]) => sum + value, 0);
-  //   if (rest > 0) topFour.push(["Other", rest]);
-
-  //   return topFour;
-  // }
-
-  const sortedSessions = userSessions.sort(
-    (a, b) => new Date(b.session_date) - new Date(a.session_date)
-  );
-
-  const sessionList = sortedSessions.map((session) => (
-    <li key={session.session_date}>
-      <div className="flex justify-between p-4 bg-white shadow-sm items-center dark:bg-stone-800 shadow-stone-100 dark:border-transparent dark:shadow-stone-100/0">
-        <div className="felx flex-col">
-          <p className="font-bold">{session.schedule_id.heb_name}</p>
-          <p className="text-sm">{session.day}</p>
-        </div>
-        <p className=" text-sm">
-          {new Date(session.date).toLocaleString("default", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          })}
-        </p>
-      </div>
-    </li>
-  ));
+  const sortedSessions = sessionList?.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const joinDate = sortedSessions && formatDate(sortedSessions?.at(-1).date, "MMM yyyy");
 
   return (
     <div>
       <div className="fixed z-50 px-4 top-0 w-full flex justify-between items-center">
-        <ModeToggle />
-
-        <div className="">
-          <form
-            className="p-4"
-            action={async () => {
-              "use server";
-              await signOut();
-            }}
-          >
-            <Button variant="outline" type="submit">
-              Logout
-            </Button>
-          </form>
-        </div>
+        {/* <ModeToggle /> */}
+        {/* <LogoutForm /> */}
       </div>
-      <Container>
+      <Container width="max-w-[30rem]">
         <div>
-          {user.image ? (
+          {user?.image ? (
             <Image
-              src={user.image}
+              src={user?.image}
               width={100}
               height={100}
               className="aspect-square object-cover rounded-full mx-auto"
               alt={user.name}
             />
           ) : (
-            <RandomImage update={!userData.user.image} width={100} height={100} />
+            "Loading Image"
+            // <RandomImage update={user?.image} width={100} height={100} />
           )}
           <div className="text-center gap-2 flex items-center flex-col py-2 mx-auto">
-            <p className="text-2xl font-bold">{user.name}</p>
-            <p>{`${sessionList.length} אימונים`}</p>
+            <div className="flex items-baseline gap-2">
+              <p className="text-xl font-bold">{user?.name}</p>
+              <p className="text-sm">{`${sessionList?.length} אימונים`}</p>
+            </div>
             <p className="text-sm py-1 px-3 rounded-md border dark:border-transparent border-stone-200 bg-orange-100 dark:bg-stone-800">
               {`תאריך הצטרפות `}
-              <span className="font-bold text-stone-600">
-                {`${firstSession.toLocaleString("default", {
-                  month: "short",
-                  year: "numeric",
-                })}`}
-              </span>
+              <span className="font-bold text-stone-600">{`${joinDate}`}</span>
             </p>
-
-            {/* <div className="flex justify-center flex-wrap gap-2 py-6">
-              {Object.entries(formattedSessions()).map(([, value]) => {
-                return (
-                  <p className="p-2 rounded-md border dark:border-transparent border-stone-100 text-stone-400 font-bold text-sm uppercase  dark:bg-stone-800 bg-white">
-                    {value[0]} - {value[1]}
-                  </p>
-                );
-              })}
-            </div> */}
           </div>
         </div>
 
-        {/* <Component chartData={chartData} /> */}
-        <ul className="flex flex-col gap-2" key={sessionList.email}>
-          {sessionList}
-        </ul>
+        {sessionsLoading && <p>Loading...</p>}
+        {error && <p>לא הצלחתי לטעון את ההסטוריה שלך.</p>}
+        {sessionList?.map((session) => (
+          <li className=" list-none" key={session.id}>
+            <div className="flex justify-between p-4 bg-white shadow-sm items-center dark:bg-stone-800 shadow-stone-100 dark:border-transparent dark:shadow-stone-100/0">
+              <div className="felx flex-col">
+                <p className="font-bold">{session.name}</p>
+                <p className="text-sm">{session.day}</p>
+              </div>
+              <p className="text-sm">{formatDate(new Date(session.date), "dd/MM/yyyy")}</p>
+            </div>
+          </li>
+        ))}
       </Container>
     </div>
   );
 }
-
-export default Profile;

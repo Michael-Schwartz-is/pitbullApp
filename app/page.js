@@ -2,11 +2,11 @@
 
 import { useRouter } from "next/navigation";
 import Container from "@/app/components/ui/Container";
-import { DaysOfWeek } from "@/app/components/ui/DaysOfWeek";
+import { DaysOfWeekCards } from "@/app/components/ui/DaysOfWeek";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
-import { useGetUserInfo } from "@/api/user/user";
-import { useGetAllFeatureSessions } from "@/api/sessions/sessions";
+import { useGetUserInfo } from "@/client/user/user";
+import { useGetAllFeatureSessions } from "@/client/sessions/sessions";
 
 function Home() {
   const { data: session, status } = useSession();
@@ -20,7 +20,6 @@ function Home() {
 
   const { data: allFeatureSessions } = useGetAllFeatureSessions();
   const { data: userData } = useGetUserInfo();
-  console.log(allFeatureSessions);
 
   return (
     <>
@@ -30,7 +29,7 @@ function Home() {
             <h1 className="text-2xl font-bold ">לוז אימונים</h1>
             <p>שלום {session && session.user.name.split(" ")[0]}!</p>
           </div>
-          <DaysOfWeek />
+          <DaysOfWeekCards />
         </Container>
       </main>
     </>

@@ -4,30 +4,15 @@ import SessionModel from "@/models/SessionModel";
 import userModel from "@/models/UsersModel";
 import { NextResponse } from "next/server";
 
-// export async function PUT(request) {
-//   const { email, day, session } = await request.json();
-//   const next = calcDayFromTimestamp(day).date;
-
-//   try {
-//     await connectToDB();
-//     const user_id = await userModel.findOne({ email });
-//     const session_id = await ScheduleModel.findOne({ day: day, session: session });
-//     const neeSession = await SessionModel.create({ user_id, session_id, day, date: next });
-//     return Response.json({ user_id, session_id, day, date: next });
-//   } catch (error) {
-//     console.log(error);
-//     return Response.json({ error }, { status: 400 });
-//   }
-// }
-
 export async function POST(request) {
   const { email, day, session } = await request.json();
-  const next = calcDayFromTimestamp(day).date;
+  const next = calcDayFromTimestamp(new Date(), day);
+
+  console.log("here", next);
 
   try {
     await connectToDB();
     const user_id = await userModel.findOne({ email });
-    console.log(user_id);
     const session_id = await ScheduleModel.findOne({ day: day, english_name: session });
     const newSession = new SessionModel({
       user_id: user_id._id,
@@ -35,7 +20,9 @@ export async function POST(request) {
       name: session,
       date: next,
       day: day,
+      test: true,
     });
+
     await newSession.save();
 
     return NextResponse.json({
@@ -45,7 +32,7 @@ export async function POST(request) {
   } catch (error) {
     return NextResponse.json({
       success: false,
-      message: `didng work out`,
+      message: `error: ${error.message}`,
     });
   }
 }

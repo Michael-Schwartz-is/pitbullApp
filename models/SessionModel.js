@@ -1,3 +1,4 @@
+import { calcDayFromTimestamp } from "@/lib/utils";
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
@@ -19,11 +20,12 @@ const sessionSchema = new Schema({
   signup_timestamp: {
     type: Date,
     required: true,
-    default: Date.now,
+    default: Date.now(),
   },
   date: {
     type: Date,
     required: true,
+    default: () => new Date(date),
   },
   email: {
     type: String,
@@ -33,6 +35,10 @@ const sessionSchema = new Schema({
     type: String,
     required: true,
     enum: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+  },
+  test: {
+    type: Boolean,
+    required: false,
   },
 });
 

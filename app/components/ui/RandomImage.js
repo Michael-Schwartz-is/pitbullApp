@@ -16,8 +16,6 @@ async function getRandomImage() {
 }
 
 function handleEditImage() {
-  console.log("yoa");
-
   //   console.log("edit this");
   //   //modal > image > store in db
 }

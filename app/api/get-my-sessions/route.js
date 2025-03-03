@@ -21,7 +21,7 @@ export async function getAllFutureSessions(day, session, email) {
   await connectToDB();
   const now = new Date();
   const attendeesList = await SessionModel.find({
-    // date: { $gte: now },
+    date: { $gte: now },
   })
     .populate("schedule_id")
     .populate("user_id");
