@@ -1,5 +1,6 @@
 import {
   addUserToTraining,
+  deleteUserSession,
   getAllFutureSessions,
   GetAllUserSessions,
 } from "@/client/sessions/requests";
@@ -12,12 +13,26 @@ export function useGetAllFeatureSessions() {
   });
 }
 
-export function useAddUserToTraining() {
+export function useAddUserToTraining(data) {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationKey: ["add-user-to-training"],
     mutationFn: (data) => addUserToTraining(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["future-sessions"],
+      });
+    },
+  });
+}
+
+export function useDeleteUserSession() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationKey: ["delete-user-session"],
+    mutationFn: (id) => deleteUserSession(id),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["future-sessions"],

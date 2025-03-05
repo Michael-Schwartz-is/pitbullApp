@@ -3,22 +3,35 @@
 import { Button } from "@/components/ui/button";
 import SessionButton from "./SessionButton";
 import { useState } from "react";
-import { useAddUserToTraining, useGetAllFeatureSessions } from "@/client/sessions/sessions";
+import {
+  useAddUserToTraining,
+  useDeleteUserSession,
+  useGetAllFeatureSessions,
+} from "@/client/sessions/sessions";
 
-export const JoinSessionModal = ({ info }) => {
+export const JoinSessionModal = ({ info, id }) => {
   const { day, session, email, attending } = info;
   const addUserToTrainig = useAddUserToTraining();
   const [open, setOpen] = useState(false);
   const { data: allFutureSessions } = useGetAllFeatureSessions();
+  const deleteUserSession = useDeleteUserSession();
 
   const toggleOpen = () => {
     setOpen(!open);
   };
 
-  const checkAttending = () => {};
-
   function handleUserReg() {
-    addUserToTrainig.mutate({ email, day, session });
+    console.log("day", day);
+    console.log("!attending", !attending);
+
+    if (!attending) {
+      addUserToTrainig.mutate({ email, day, session });
+    }
+
+    if (attending) {
+      deleteUserSession.mutate({ id });
+    }
+
     setOpen(false);
   }
 

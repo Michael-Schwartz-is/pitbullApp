@@ -8,9 +8,10 @@ import { JoinSessionModal } from "@/app/components/ui/JoinSessionModal";
 import { useGetAllFeatureSessions } from "@/client/sessions/sessions";
 import { useGetUserInfo } from "@/client/user/user";
 import { useIsAuthenticated } from "@/hooks/is-authenticated";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cap } from "@/lib/utils";
 import { Loader } from "lucide-react";
+import { set } from "mongoose";
 
 export default function Session() {
   useIsAuthenticated();
@@ -21,7 +22,7 @@ export default function Session() {
   const { data: userData } = useGetUserInfo();
 
   const info = {
-    day,
+    day: day,
     session,
     email: userData?.email,
     attending,
@@ -32,6 +33,12 @@ export default function Session() {
   const attendeesList =
     allFutureSessions?.sessions?.filter((s) => s.day === today && s.name === session).reverse() ||
     [];
+
+  const id = attendeesList.find((a) => a.user_id.email === userData?.email)?._id;
+
+  useEffect(() => {
+    setAttending(attendeesList.some((a) => a.user_id.email === userData?.email));
+  }, [attendeesList, userData]);
 
   return (
     <div>
@@ -54,7 +61,7 @@ export default function Session() {
             </p>
           )}
         </div>
-        <JoinSessionModal info={info} />
+        <JoinSessionModal info={info} id={id} />
       </Container>
     </div>
   );

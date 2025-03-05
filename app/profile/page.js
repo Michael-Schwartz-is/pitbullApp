@@ -9,7 +9,6 @@ import LogoutForm from "../components/LogoutForm";
 import { useGetUserInfo } from "@/client/user/user";
 import { useGetAllUserSessions } from "@/client/sessions/sessions";
 import { formatDate } from "date-fns";
-import { join } from "path";
 
 export default function Profile() {
   useIsAuthenticated();
@@ -28,7 +27,7 @@ export default function Profile() {
   return (
     <div>
       <div className="fixed z-50 px-4 top-0 w-full flex justify-between items-center">
-        {/* <ModeToggle /> */}
+        <ModeToggle />
         {/* <LogoutForm /> */}
       </div>
       <Container width="max-w-[30rem]">
