@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { UserPlus2Icon } from "lucide-react";
 
 // Get a random image from the `/public/images` folder
-async function getRandomImage() {
+export async function getRandomImage() {
   const imageDir = path.join(process.cwd(), "public/random");
   const files = fs.readdirSync(imageDir);
 
@@ -13,11 +13,6 @@ async function getRandomImage() {
 
   const randomImage = files[Math.floor(Math.random() * files.length)];
   return `/random/${randomImage}`; // Return image path
-}
-
-function handleEditImage() {
-  //   console.log("edit this");
-  //   //modal > image > store in db
 }
 
 export default async function RandomImage({ update, width, height }) {

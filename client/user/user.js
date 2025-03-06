@@ -7,10 +7,3 @@ export function useGetUserInfo() {
     queryFn: () => getUserInfo(),
   });
 }
-
-// export function useAdduserToDB() {
-//   return useQuery({
-//     queryKey: ["user-info"],
-//     queryFn: () => addUserToDB(),
-//   });
-// }

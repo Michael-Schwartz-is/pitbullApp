@@ -1,4 +1,4 @@
-import { RandomGymImage } from "@/app/components/ui/randomGymImage";
+import RandomImage, { getRandomImage } from "@/app/components/ui/RandomImage";
 import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 
@@ -7,9 +7,9 @@ export const GET = auth(async function GET(req) {
     return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
   }
 
-  const images = await RandomGymImage();
+  const image = await getRandomImage();
 
   return NextResponse.json({
-    images,
+    image,
   });
 });

@@ -3,11 +3,16 @@
 import Image from "next/image";
 import RandomImage from "./RandomImage";
 import { getUserInfo } from "@/client/user/requests";
+import { useGetRandomAvatar } from "@/client/images/requests";
 
 function AttendeeList({ attendeesList }) {
   const user = getUserInfo();
 
   attendeesList = JSON.parse(attendeesList);
+
+  const { data: randomImage } = useGetRandomAvatar();
+
+  console.log(randomImage);
 
   return (
     <div className="grid grid-cols-3 gap-2">
@@ -31,7 +36,15 @@ function AttendeeList({ attendeesList }) {
                 className="rounded-full bg-cover aspect-square"
               />
             ) : (
-              <RandomImage />
+              randomImage && (
+                <Image
+                  src={randomImage.image}
+                  width={80}
+                  height={64}
+                  alt={person.user_id.name}
+                  className="rounded-full bg-cover aspect-square"
+                />
+              )
             )}
             <p>{person.user_id.email.split("@")[0]}</p>
             <p>{person.user_id.name || person.user_id.email.split("@")[0]}</p>

@@ -11,7 +11,6 @@ import { useIsAuthenticated } from "@/hooks/is-authenticated";
 import { useEffect, useState } from "react";
 import { cap } from "@/lib/utils";
 import { Loader } from "lucide-react";
-import { set } from "mongoose";
 
 export default function Session() {
   useIsAuthenticated();

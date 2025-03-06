@@ -8,3 +8,10 @@ export function useGetActiveSchedule(day) {
     select: (allItems) => allItems.filter((item) => item.day === day),
   });
 }
+
+export function useUpdateSchedule() {
+  return useQuery({
+    queryKey: ["update-schedule"],
+    queryFn: () => updateSchedule(),
+  });
+}
