@@ -1,19 +1,20 @@
-"use server";
-
+import { signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
+import { User2Icon } from "lucide-react";
 
-function LogoutForm() {
+export default function LogoutForm() {
   return (
-    <form
-      className="p-4"
-      action={async () => {
-        await signOut();
-      }}
+    <Button
+      variant="outline"
+      type="submit"
+      onClick={() =>
+        signOut({
+          redirectTo: "/login",
+        })
+      }
     >
-      <Button variant="outline" type="submit">
-        Logout
-      </Button>
-    </form>
+      Logout
+      <User2Icon />
+    </Button>
   );
 }
-export default LogoutForm;

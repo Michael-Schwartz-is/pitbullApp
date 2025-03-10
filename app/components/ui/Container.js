@@ -10,7 +10,7 @@ export default function Container({ children, ...props }) {
     <div
       className={`max-w-[${
         max[width] ?? "30rem"
-      }] relative w-full min-h-[100svh] mx-auto px-4 pt-[4rem] pb-[8rem]`}
+      }] relative w-full min-h-[100svh] mx-auto px-4 pt-[2rem] pb-[8rem]`}
     >
       {children}
     </div>

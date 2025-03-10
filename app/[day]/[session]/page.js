@@ -17,21 +17,29 @@ export default function Session() {
 
   const [attending, setAttending] = useState(false);
   const { day, session } = useParams();
+  const decodedSession = decodeURI(session);
   const { data: allFutureSessions, isLoading } = useGetAllFeatureSessions();
   const { data: userData } = useGetUserInfo();
 
   const info = {
     day: day,
-    session,
+    session: decodedSession,
     email: userData?.email,
     attending,
   };
 
   const today = cap(day);
 
+  // console.log("allFutureSess     ions", allFutureSessions);
+  // console.log("today", today);
+  // console.log("decodedSession", decodedSession);
+
   const attendeesList =
-    allFutureSessions?.sessions?.filter((s) => s.day === today && s.name === session).reverse() ||
-    [];
+    allFutureSessions?.sessions
+      ?.filter((s) => s.day === today && s.name === decodedSession)
+      .reverse() || [];
+
+  console.log("attendeesList", attendeesList);
 
   const id = attendeesList.find((a) => a.user_id.email === userData?.email)?._id;
 
@@ -44,7 +52,7 @@ export default function Session() {
       <Container>
         <div className="gap-4 max-w-[30rem] mx-auto">
           <TitleBar
-            title={`${today} / ${session
+            title={`${today} / ${decodedSession
               .split("_")
               .map((a) => a.charAt(0).toUpperCase() + a.slice(1))
               .join(" ")}`}
