@@ -17,7 +17,7 @@ export default function Session() {
 
   const [attending, setAttending] = useState(false);
   const { day, session } = useParams();
-  const decodedSession = decodeURI(session);
+  const decodedSession = typeof session === "string" ? decodeURI(session) : null;
   const { data: allFutureSessions, isLoading } = useGetAllFeatureSessions();
   const { data: userData } = useGetUserInfo();
 
@@ -30,9 +30,9 @@ export default function Session() {
 
   const today = cap(day);
 
-  // console.log("allFutureSess     ions", allFutureSessions);
-  // console.log("today", today);
-  // console.log("decodedSession", decodedSession);
+  console.log("allFutureSessions", allFutureSessions);
+  console.log("today", today);
+  console.log("decodedSession", decodedSession);
 
   const attendeesList =
     allFutureSessions?.sessions
@@ -50,24 +50,26 @@ export default function Session() {
   return (
     <div>
       <Container>
-        <div className="gap-4 max-w-[30rem] mx-auto">
-          <TitleBar
-            title={`${today} / ${decodedSession
-              .split("_")
-              .map((a) => a.charAt(0).toUpperCase() + a.slice(1))
-              .join(" ")}`}
-            subText={`נותרו ${20 - attendeesList?.length} מקומות פנויים `}
-          />
-          {!!attendeesList?.length && (
-            <AttendeeList attendeesList={JSON.stringify(attendeesList)} />
-          )}
-          {isLoading && (
-            <p className="text-2xl">
-              {" "}
-              <Loader /> טוען...
-            </p>
-          )}
-        </div>
+        {decodedSession && (
+          <div className="gap-4 max-w-[30rem] mx-auto">
+            <TitleBar
+              title={`${today} / ${decodedSession
+                .split("_")
+                .map((a) => a.charAt(0).toUpperCase() + a.slice(1))
+                .join(" ")}`}
+              subText={`נותרו ${20 - attendeesList?.length} מקומות פנויים `}
+            />
+            {!!attendeesList?.length && (
+              <AttendeeList attendeesList={JSON.stringify(attendeesList)} />
+            )}
+            {isLoading && (
+              <p className="text-2xl">
+                {" "}
+                <Loader /> טוען...
+              </p>
+            )}
+          </div>
+        )}
         <JoinSessionModal info={info} id={id} />
       </Container>
     </div>
