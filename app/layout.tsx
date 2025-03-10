@@ -16,12 +16,12 @@ export const metadata = {
   description: "this is cool",
 };
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
   const publishedAt = new Date().toString();
 
   return (
-    <html lang="en" published={publishedAt}>
+    <html lang="en" data-published={publishedAt}>
       <body dir="rtl" className={`${font.className} font-medium antialiased`}>
         <SessionProvider>
           <Providers>

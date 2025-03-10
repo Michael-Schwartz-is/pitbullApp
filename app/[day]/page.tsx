@@ -16,12 +16,10 @@ function trainingDay() {
   const { data: todaySchedule } = useGetActiveSchedule(cap(day));
   const today = daysOfWeek.find((d) => d.name === day);
 
-  console.log(todaySchedule);
-
   return (
     <Container>
       <div className="max-w-[30rem] mx-auto">
-        <TitleBar title={`אימונים ליום ${today?.hebName}`} subText={today.next()} />
+        {today && <TitleBar title={`אימונים ליום ${today.hebName}`} subText={today.next()} />}
         <div className="flex flex-col gap-2">
           {todaySchedule?.map((session) => {
             return (

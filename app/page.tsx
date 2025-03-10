@@ -27,7 +27,7 @@ function Home() {
         <Container>
           <div className="max-w-[30rem] mb-8 mx-auto">
             <h1 className="text-2xl font-bold ">לוז אימונים</h1>
-            <p>שלום {session && session.user.name.split(" ")[0]}!</p>
+            <p>שלום {session && session?.user?.name?.split(" ")[0]}!</p>
           </div>
           <DaysOfWeekCards />
         </Container>
