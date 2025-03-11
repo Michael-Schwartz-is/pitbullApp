@@ -31,3 +31,22 @@ export type ScheduleId = {
   active: boolean;
   __v: number;
 };
+
+export type userIteractionData = {
+  email: string;
+  day: string;
+  session: string;
+};
+
+export type addUserToTrainingResponse = {
+  message: string;
+  success: boolean;
+  response: null | {
+    user_id: UserId;
+    schedule_id: string;
+    name: session;
+    date: string;
+    day: string;
+    test: boolean;
+  };
+};

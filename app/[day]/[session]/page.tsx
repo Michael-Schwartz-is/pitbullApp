@@ -36,7 +36,7 @@ export default function Session() {
 
   const attendeesList =
     allFutureSessions?.sessions
-      ?.filter((s) => s.day === today && s.name === decodedSession)
+      .filter((s) => s.day === today && s.name === decodedSession)
       .reverse() || [];
 
   console.log("attendeesList", attendeesList);
@@ -65,7 +65,7 @@ export default function Session() {
             {isLoading && (
               <p className="text-2xl">
                 {" "}
-                <Loader /> טוען...
+                <Loader className="animate-spin" /> טוען...
               </p>
             )}
           </div>

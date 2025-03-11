@@ -21,15 +21,22 @@ export const JoinSessionModal = ({ info, id }) => {
   };
 
   function handleUserReg() {
-    console.log("day", day);
-    console.log("!attending", !attending);
-
     if (!attending) {
-      addUserToTrainig.mutate({ email, day, session });
+      addUserToTrainig.mutate(
+        { email, day, session },
+        {
+          onSuccess: (response) => {
+            console.log("response123", response);
+          },
+          onError: (error) => {
+            console.error("error", error);
+          },
+        }
+      );
     }
 
     if (attending) {
-      deleteUserSession.mutate({ id });
+      deleteUserSession.mutate(id);
     }
 
     setOpen(false);

@@ -13,16 +13,16 @@ import { formatDate } from "date-fns";
 export default function Profile() {
   useIsAuthenticated();
   const { data: user } = useGetUserInfo();
-  const {
-    data: sessionList,
-    isLoading: sessionsLoading,
-    error: error,
-  } = useGetAllUserSessions(user?.email, {
-    enabled: !!user?.email,
+  const { data: sessionList, isLoading: sessionsLoading, error: error } = useGetAllUserSessions();
+
+  // console.log(sessionList);
+
+  const sortedSessions = sessionList?.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
-  const sortedSessions = sessionList?.sort((a, b) => new Date(b.date) - new Date(a.date));
-  const joinDate = sortedSessions && formatDate(sortedSessions?.at(-1).date, "MMM yyyy");
+  const firstSession = sortedSessions && sortedSessions?.at(-1)?.date;
+  const joinDate = firstSession && formatDate(firstSession, "MMM yyyy");
 
   return (
     <div>
@@ -60,13 +60,15 @@ export default function Profile() {
 
           {error && <p>לא הצלחתי לטעון את ההסטוריה שלך.</p>}
           {sessionList?.map((session) => (
-            <li className=" list-none" key={session.id}>
+            <li className=" list-none" key={session._id}>
               <div className="flex justify-between p-4 bg-white shadow-sm items-center dark:bg-stone-800 shadow-stone-100 dark:border-transparent dark:shadow-stone-100/0">
                 <div className="felx flex-col">
                   <p className="font-bold">{session.name}</p>
                   <p className="text-sm">{session.day}</p>
                 </div>
-                <p className="text-sm">{formatDate(new Date(session.date), "dd/MM/yyyy")}</p>
+                <p dir="ltr" className="text-sm">
+                  {formatDate(new Date(session.date), "dd/MM/yyyy")}
+                </p>
               </div>
             </li>
           ))}
